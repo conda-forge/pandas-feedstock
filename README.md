@@ -69,6 +69,7 @@ Terminology
 
 Current build status
 ====================
+
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pandas-feedstock.svg?style=svg)](https://circleci.com/gh/conda-forge/pandas-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/pandas-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pandas-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pandas-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pandas-feedstock/branch/master)
