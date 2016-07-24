@@ -10,34 +10,32 @@ source:
     sha256: 1f3136f69a58d490ba9f9874e67601042a11138270515dedcf6979c003bba79b
 
 build:
-    number: 0
+    number: 1
     script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
-  build:
-    - python
-    - cython
-    - numpy             x.x
-    - setuptools
-    - pytz
-    - python-dateutil
-
-  run:
-    - python
-    - numpy             x.x
-    - python-dateutil
-    - pytz
+    build:
+        - python
+        - setuptools
+        - cython
+        - numpy  x.x
+    run:
+        - python
+        - numpy  x.x
+        - python-dateutil
+        - pytz
 
 test:
-  imports:
-    - pandas
+    imports:
+        - pandas
 
 about:
-  home: http://pandas.pydata.org
-  license: BSD 3-clause
-  summary: high-performance, easy-to-use data structures and data analysis tools
+    home: http://pandas.pydata.org
+    license: BSD 3-clause
+    summary: high-performance, easy-to-use data structures and data analysis tools.
 
 extra:
-  recipe-maintainers:
-    - jreback
-    - msarahan
+    recipe-maintainers:
+        - jreback
+        - msarahan
+        - ocefpaf
