@@ -28,6 +28,8 @@ requirements:
 test:
     imports:
         - pandas
+    commands:
+        - conda inspect linkages -n _test pandas  # [linux]
 
 about:
     home: http://pandas.pydata.org
