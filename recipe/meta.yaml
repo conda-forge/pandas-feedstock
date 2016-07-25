@@ -1,4 +1,4 @@
-{% set version="0.17.0" %}
+{% set version="0.17.1" %}
 
 package:
     name: pandas
@@ -7,7 +7,7 @@ package:
 source:
     fn: pandas-{{ version }}.tar.gz
     url: https://github.com/pydata/pandas/archive/v{{ version }}.tar.gz
-    sha256: 450b2de0da3ac987191c4c682fa624318768560c598a1a97c4e854dc6c898182
+    sha256: 04f9ceb7e4103c649916b5fd4f9c3daaa9602e239732c4432324de31fd18ccc6
 
 build:
     number: 0
