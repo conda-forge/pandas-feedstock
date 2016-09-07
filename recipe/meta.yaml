@@ -39,5 +39,6 @@ about:
 extra:
     recipe-maintainers:
         - jreback
+        - jorisvandenbossche
         - msarahan
         - ocefpaf
