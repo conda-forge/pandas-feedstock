@@ -1,44 +1,45 @@
 {% set version="0.19.2" %}
 
 package:
-    name: pandas
-    version: {{ version }}
+  name: pandas
+  version: {{ version }}
 
 source:
-    fn: pandas-{{ version }}.tar.gz
-    url: https://github.com/pydata/pandas/archive/v{{ version }}.tar.gz
-    sha256: dd2ee30e21804675a6ef41bea854a023b8be3b840fd2aa33e7e1cc38066e781c
+  fn: pandas-{{ version }}.tar.gz
+  url: https://github.com/pydata/pandas/archive/v{{ version }}.tar.gz
+  sha256: dd2ee30e21804675a6ef41bea854a023b8be3b840fd2aa33e7e1cc38066e781c
 
 build:
-    number: 0
-    script: python setup.py install --single-version-externally-managed --record=record.txt
+  number: 1
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
-    build:
-        - python
-        - setuptools
-        - cython
-        - numpy  x.x
-    run:
-        - python
-        - numpy  x.x
-        - python-dateutil
-        - pytz
+  build:
+    - python
+    - setuptools
+    - cython
+    - numpy  x.x
+  run:
+    - python
+    - numpy  x.x
+    - python-dateutil
+    - pytz
 
 test:
-    imports:
-        - pandas
-    commands:
-        #- conda inspect linkages -n _test pandas  # [linux]
+  imports:
+    - pandas
+  commands:
+    - conda inspect linkages -p $PREFIX pandas  # [not win]
+    - conda inspect objects -p $PREFIX pandas  # [osx]
 
 about:
-    home: http://pandas.pydata.org
-    license: BSD 3-clause
-    summary: high-performance, easy-to-use data structures and data analysis tools.
+  home: http://pandas.pydata.org
+  license: BSD 3-clause
+  summary: 'High-performance, easy-to-use data structures and data analysis tools.'
 
 extra:
-    recipe-maintainers:
-        - jreback
-        - jorisvandenbossche
-        - msarahan
-        - ocefpaf
+  recipe-maintainers:
+    - jreback
+    - jorisvandenbossche
+    - msarahan
+    - ocefpaf

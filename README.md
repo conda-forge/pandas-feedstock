@@ -7,7 +7,7 @@ Package license: BSD 3-clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: high-performance, easy-to-use data structures and data analysis tools.
+Summary: High-performance, easy-to-use data structures and data analysis tools.
 
 
 
