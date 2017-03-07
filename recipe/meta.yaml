@@ -24,6 +24,8 @@ requirements:
     - numpy  x.x
     - python-dateutil
     - pytz
+    - bottleneck
+    - numexpr
 
 test:
   imports:
