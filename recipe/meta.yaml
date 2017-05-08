@@ -7,7 +7,7 @@ package:
 source:
   fn: pandas-{{ version }}.tar.gz
   url: https://github.com/pydata/pandas/archive/v{{ version }}.tar.gz
-  sha256: e0613cb3847d5e0eecf4735e067835c34f41c2f4b6e8d2f5ef01acd28db74c39
+  sha256: e85ac7194d28a450adda3195b7bfc839ac6f413a799022e2485e23ddee3846dd
 
 build:
   number: 0
