@@ -7,7 +7,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/pandas-dev/pandas/archive/v{{ version }}/{{ name }}-{{ version }}.tar.gz
+  url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: a777e07633d83d546c55706420179551c8e01075b53c497dcf8ae4036766bc66
 
 build:
