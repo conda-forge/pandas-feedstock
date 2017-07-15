@@ -11,7 +11,7 @@ source:
   sha256: a777e07633d83d546c55706420179551c8e01075b53c497dcf8ae4036766bc66
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -19,10 +19,14 @@ requirements:
     - python
     - setuptools
     - cython
-    - numpy  x.x
+    - numpy 1.7.*  # [py27]
+    - numpy 1.9.*  # [py35]
+    - numpy 1.11.*  # [py36]
   run:
     - python
-    - numpy  x.x
+    - numpy >=1.7  # [py27]
+    - numpy >=1.9  # [py35]
+    - numpy >=1.11  # [py36]
     - python-dateutil
     - pytz
 
