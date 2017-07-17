@@ -29,6 +29,8 @@ requirements:
     - numpy >=1.11  # [py36]
     - python-dateutil
     - pytz
+    - bottleneck
+    - numexpr
 
 test:
   imports:
