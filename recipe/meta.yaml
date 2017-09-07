@@ -12,19 +12,20 @@ source:
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: python setup.py install --single-version-externally-managed --record=record.txt  # [win]
 
 requirements:
   build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
     - setuptools
     - cython
-    - numpy 1.9.*  # [py27 or py35]
-    - numpy 1.11.*  # [py36]
+    - numpy
   run:
     - python
-    - numpy >=1.9.*  # [py27 or py35]
-    - numpy >=1.11.*  # [py36]
+    - {{ pin_compatible('numpy', max_pin='x.x') }}
     - python-dateutil
     - pytz
 
