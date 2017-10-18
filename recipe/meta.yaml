@@ -1,5 +1,5 @@
 {% set name = "pandas" %}
-{% set version="0.20.3" %}
+{% set version="0.21.0rc1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,11 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a777e07633d83d546c55706420179551c8e01075b53c497dcf8ae4036766bc66
+  sha256: fb90d08355811386a472b54fde793be78fa9ce5fc5b354cc444ee0bd6bf111fb
+
 
 build:
-  number: 1
+  number: 0
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -19,14 +20,12 @@ requirements:
     - python
     - setuptools
     - cython
-    - numpy 1.8.*  # [not (win and (py35 or py36))]
-    - numpy 1.9.*  # [win and py35]
-    - numpy 1.11.*  # [win and py36]
+    - numpy 1.9.*  # [py27 or py35]
+    - numpy 1.11.*  # [py36]
   run:
     - python
-    - numpy >=1.8  # [not (win and (py35 or py36))]
-    - numpy >=1.9  # [win and py35]
-    - numpy >=1.11  # [win and py36]
+    - numpy >=1.9.*  # [py27 or py35]
+    - numpy >=1.11.*  # [py36]
     - python-dateutil
     - pytz
 
