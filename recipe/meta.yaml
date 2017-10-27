@@ -1,5 +1,5 @@
 {% set name = "pandas" %}
-{% set version="0.21.01" %}
+{% set version="0.21.0" %}
 
 package:
   name: {{ name|lower }}
