@@ -18,9 +18,9 @@ requirements:
   build:
     - libgcc  # [linux]
     - libcxx  # [osx]
-    - vc 9  # [win and py27]
-    - vc 10  # [win and py34]
-    - vc 14  # [win and (py35 or py36)]
+    - vc 9.*  # [win and py27]
+    - vc 10.*  # [win and py34]
+    - vc 14.*  # [win and (py35 or py36)]
     - python
     - setuptools
     - cython
@@ -29,9 +29,9 @@ requirements:
   run:
     - libgcc  # [linux]
     - libcxx  # [osx]
-    - vc 9  # [win and py27]
-    - vc 10  # [win and py34]
-    - vc 14  # [win and (py35 or py36)]
+    - vc 9.*  # [win and py27]
+    - vc 10.*  # [win and py34]
+    - vc 14.*  # [win and (py35 or py36)]
     - python
     - numpy >=1.9.*  # [py27 or py35]
     - numpy >=1.11.*  # [py36]
