@@ -1,23 +1,22 @@
 {% set name = "pandas" %}
-{% set version="0.23.0rc1" %}
+{% set version = "0.23.0rc1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: 4cdec5f000d2988cf791de590b94037fa52e198c31f07278dd889cc13cf21d6f
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
     - python
-    - setuptools
+    - pip
     - cython
     - numpy 1.9.*  # [py27 or py35]
     - numpy 1.11.*  # [py36]
@@ -32,8 +31,8 @@ test:
   imports:
     - pandas
   commands:
-    - conda inspect linkages -p $PREFIX pandas  # [not win]
-    - conda inspect objects -p $PREFIX pandas  # [osx]
+    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
+    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: http://pandas.pydata.org
