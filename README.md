@@ -14,14 +14,16 @@ Summary: High-performance, easy-to-use data structures and data analysis tools.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pandas-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pandas-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/pandas-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pandas-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pandas-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pandas-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/pandas-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/pandas-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/pandas-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/pandas-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/pandas-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/pandas-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pandas/badges/version.svg)](https://anaconda.org/conda-forge/pandas)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pandas/badges/downloads.svg)](https://anaconda.org/conda-forge/pandas)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pandas-green.svg)](https://anaconda.org/conda-forge/pandas) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pandas.svg)](https://anaconda.org/conda-forge/pandas) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pandas.svg)](https://anaconda.org/conda-forge/pandas) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pandas.svg)](https://anaconda.org/conda-forge/pandas) |
 
 Installing pandas
 =================
