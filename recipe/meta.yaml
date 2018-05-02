@@ -1,5 +1,5 @@
 {% set name = "pandas" %}
-{% set version="0.22.0" %}
+{% set version="0.23.0rc1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 44a94091dd71f05922eec661638ec1a35f26d573c119aa2fad964f10a2880e6c
+  sha256: 4cdec5f000d2988cf791de590b94037fa52e198c31f07278dd889cc13cf21d6f
 
 build:
   number: 0
@@ -25,7 +25,7 @@ requirements:
     - python
     - numpy >=1.9.*  # [py27 or py35]
     - numpy >=1.11.*  # [py36]
-    - python-dateutil
+    - python-dateutil >=2.5.0
     - pytz
 
 test:
