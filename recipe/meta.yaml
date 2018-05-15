@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pandas/pandas-{{ version }}.tar.gz
-  url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
+  url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
   sha256: 84ab1d50590cb2d9554211f164dc1b1a216bc94da2ba922aed2690c83f248fd9
 
 build:
