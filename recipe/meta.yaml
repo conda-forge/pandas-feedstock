@@ -24,7 +24,7 @@ requirements:
     - python
     - numpy >=1.9.*  # [py27 or py35]
     - numpy >=1.11.*  # [py36]
-    - python-dateutil
+    - python-dateutil >=2.5.*
     - pytz
 
 test:
