@@ -1,4 +1,4 @@
-{% set version = "0.23.0" %}
+{% set version = "0.23.1" %}
 
 package:
   name: pandas
@@ -7,10 +7,10 @@ package:
 source:
   url: https://pypi.io/packages/source/p/pandas/pandas-{{ version }}.tar.gz
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 84ab1d50590cb2d9554211f164dc1b1a216bc94da2ba922aed2690c83f248fd9
+  sha256: 50b52af2af2e15f4aeb2fe196da073a8c131fa02e433e105d95ce40016df5690
 
 build:
-  number: 1
+  number: 0
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
