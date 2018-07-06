@@ -65,8 +65,20 @@ upload_or_check_non_existence /home/conda/recipe_root conda-forge --channel=main
 touch /home/conda/feedstock_root/build_artifacts/conda-forge-build-done
 EOF
 
-# double-check that the build got to the end
-# see https://github.com/conda-forge/conda-smithy/pull/337
-# for a possible fix
-set -x
-test -f "$FEEDSTOCK_ROOT/build_artifacts/conda-forge-build-done" || exit 1
+
+mkdir -p "$ARTIFACTS"
+DONE_CANARY="$ARTIFACTS/conda-forge-build-done-${CONFIG}"
+rm -f "$DONE_CANARY"
+
+docker run -it \
+           -v "${RECIPE_ROOT}":/home/conda/recipe_root \
+           -v "${FEEDSTOCK_ROOT}":/home/conda/feedstock_root \
+           -e CONFIG \
+           -e BINSTAR_TOKEN \
+           -e HOST_USER_ID \
+           condaforge/linux-anvil \
+           bash \
+           /home/conda/feedstock_root/.circleci/build_steps.sh
+
+# verify that the end of the script was reached
+test -f "$DONE_CANARY"
