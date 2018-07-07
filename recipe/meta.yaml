@@ -10,21 +10,22 @@ source:
   sha256: 9cd3614b4e31a0889388ff1bd19ae857ad52658b33f776065793c293a29cf612
 
 build:
-  number: 0
+  number: 1
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
     - pip
     - cython
-    - numpy 1.9.*  # [py27 or py35]
-    - numpy 1.11.*  # [py36]
+    - numpy
   run:
     - python
-    - numpy >=1.9.*  # [py27 or py35]
-    - numpy >=1.11.*  # [py36]
-    - python-dateutil >=2.5.*
+    - {{ pin_compatible('numpy') }}
+    - python-dateutil
     - pytz
 
 test:
