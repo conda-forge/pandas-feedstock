@@ -21,21 +21,16 @@ requirements:
     - python
     - pip
     - cython
-    - numpy        # [py27 or py35]
-    - numpy         # [py36]
+    - numpy
   run:
     - python
-    - {{ pin_compatible('numpy') }}   # [py27 or py35]
-    - {{ pin_compatible('numpy') }}   # [py36]
+    - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.5.*
     - pytz
 
 test:
   imports:
     - pandas
-  commands:
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: http://pandas.pydata.org
