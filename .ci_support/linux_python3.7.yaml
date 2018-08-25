@@ -1,20 +1,18 @@
 c_compiler:
-- vs2008
+- toolchain_c
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2008
+- toolchain_cxx
+docker_image:
+- condaforge/linux-anvil
 numpy:
-- '1.11'
+- '1.9'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- '2.7'
-zip_keys:
-- - python
-  - c_compiler
-  - cxx_compiler
+- '3.7'
