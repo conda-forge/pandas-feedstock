@@ -5,13 +5,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pandas/pandas-{{ version }}.tar.gz
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
   sha256: 5ee45ee9bc2676ed603595a7f5ef9aa43fbc78af19d671d429e090df7e63fedf
 
 build:
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
