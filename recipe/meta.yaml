@@ -1,4 +1,4 @@
-{% set version = "0.23.4" %}
+{% set version = "0.24.0" %}
 
 package:
   name: pandas
@@ -7,11 +7,11 @@ package:
 source:
   url: https://pypi.io/packages/source/p/pandas/pandas-{{ version }}.tar.gz
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 5b24ca47acf69222e82530e89111dd9d14f9b970ab2cd3a1c2c78f0c4fbba4f4
+  sha256: 9bd9ef3e183b7b1ce90b7ab5e8672907cd73dc36f036fc6714f0e7a5f9852da0
 
 build:
-  number: 1000
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 0
+  script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
@@ -21,7 +21,8 @@ requirements:
     - python
     - pip
     - cython
-    - numpy
+    - numpy 1.14.*  # [py==37]
+    - numpy 1.12.*  # [py!=37]
   run:
     - python
     - {{ pin_compatible('numpy') }}
