@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
@@ -21,7 +21,8 @@ requirements:
     - python
     - pip
     - cython
-    - numpy 1.12
+    - numpy 1.14.* # [py37]
+    - numpy 1.12.* # [not py37]
   run:
     - python
     - {{ pin_compatible('numpy') }}
