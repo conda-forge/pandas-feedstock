@@ -21,8 +21,7 @@ requirements:
     - python
     - pip
     - cython
-    - numpy 1.14.*  # [py==37]
-    - numpy 1.12.*  # [py!=37]
+    - numpy
   run:
     - python
     - {{ pin_compatible('numpy') }}
