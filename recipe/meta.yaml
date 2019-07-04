@@ -1,4 +1,4 @@
-{% set version = "0.24.0rc1" %}
+{% set version = "0.25.0rc0" %}
 
 package:
   name: pandas
@@ -6,11 +6,12 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 5ee45ee9bc2676ed603595a7f5ef9aa43fbc78af19d671d429e090df7e63fedf
+  sha256: 7fa6e3264009127c3b2c2dbd7257ec1301940c0bea0daae983d9d3ac0d7bb8a1
 
 build:
   number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  skip: True  # [py2k]
 
 requirements:
   build:
@@ -19,13 +20,13 @@ requirements:
   host:
     - python
     - pip
-    - cython
+    - cython >=0.28.2
     - numpy 1.14
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - python-dateutil >=2.5.*
-    - pytz
+    - python-dateutil >=2.6.1
+    - pytz >=2017.2
 
 test:
   imports:
