@@ -17,15 +17,15 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - python
+    - python >=3.5.3
     - pip
-    - cython
+    - cython >=0.28.2
     - numpy 1.14
   run:
-    - python
+    - python >=3.5.3
     - {{ pin_compatible('numpy') }}
-    - python-dateutil >=2.5.*
-    - pytz
+    - python-dateutil >=2.6.1
+    - pytz >=2017.2
 
 test:
   imports:
