@@ -12,6 +12,7 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
+  skip: True  # [py2k]
 
 requirements:
   build:
@@ -20,13 +21,13 @@ requirements:
   host:
     - python
     - pip
-    - cython
+    - cython >=0.28.2
     - numpy
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - python-dateutil >=2.5.*
-    - pytz
+    - python-dateutil >=2.6.1
+    - pytz >=2017.2
 
 test:
   imports:
@@ -45,3 +46,4 @@ extra:
     - msarahan
     - ocefpaf
     - TomAugspurger
+    - WillAyd
