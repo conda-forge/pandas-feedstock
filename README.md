@@ -213,6 +213,7 @@ Feedstock Maintainers
 =====================
 
 * [@TomAugspurger](https://github.com/TomAugspurger/)
+* [@WillAyd](https://github.com/WillAyd/)
 * [@jorisvandenbossche](https://github.com/jorisvandenbossche/)
 * [@jreback](https://github.com/jreback/)
 * [@msarahan](https://github.com/msarahan/)
