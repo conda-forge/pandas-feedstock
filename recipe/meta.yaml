@@ -1,4 +1,4 @@
-{% set version = "0.25.2" %}
+{% set version = "0.25.3" %}
 
 package:
   name: pandas
@@ -7,7 +7,7 @@ package:
 source:
   url: https://pypi.io/packages/source/p/pandas/pandas-{{ version }}.tar.gz
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: ca91a19d1f0a280874a24dca44aadce42da7f3a7edb7e9ab7c7baad8febee2be
+  sha256: 52da74df8a9c9a103af0a72c9d5fdc8e0183a90884278db7f386b5692a2220a4
 
 build:
   number: 0
