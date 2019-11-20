@@ -3,11 +3,11 @@ About pandas
 
 Home: http://pandas.pydata.org
 
-Package license: BSD 3-clause
+Package license: BSD-3-Clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: High-performance, easy-to-use data structures and data analysis tools.
+Summary: High-performance, easy-to-use data structures and data analysis tools
 
 
 
