@@ -10,7 +10,7 @@ source:
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: "{{ PYTHON }} -m pip install --no-deps --ignore-installed ."
   skip: True  # [py2k]
 
 requirements:
@@ -21,7 +21,7 @@ requirements:
     - python
     - pip
     - cython >=0.28.2
-    - numpy 1.14
+    - numpy
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -45,3 +45,4 @@ extra:
     - msarahan
     - ocefpaf
     - TomAugspurger
+    - WillAyd
