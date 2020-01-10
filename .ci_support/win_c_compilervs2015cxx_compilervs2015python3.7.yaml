@@ -3,9 +3,11 @@ c_compiler:
 channel_sources:
 - conda-forge,defaults
 channel_targets:
-- conda-forge rc
+- conda-forge main
 cxx_compiler:
 - vs2015
+numpy:
+- '1.14'
 pin_run_as_build:
   python:
     min_pin: x.x

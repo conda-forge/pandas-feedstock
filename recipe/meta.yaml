@@ -1,16 +1,17 @@
-{% set version = "0.25.0rc0" %}
+{% set version = "0.25.3" %}
 
 package:
   name: pandas
   version: {{ version }}
 
 source:
+  url: https://pypi.io/packages/source/p/pandas/pandas-{{ version }}.tar.gz
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 7fa6e3264009127c3b2c2dbd7257ec1301940c0bea0daae983d9d3ac0d7bb8a1
+  sha256: 52da74df8a9c9a103af0a72c9d5fdc8e0183a90884278db7f386b5692a2220a4
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
   skip: True  # [py2k]
 
 requirements:
@@ -21,7 +22,7 @@ requirements:
     - python
     - pip
     - cython >=0.28.2
-    - numpy 1.14
+    - numpy
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -45,3 +46,4 @@ extra:
     - msarahan
     - ocefpaf
     - TomAugspurger
+    - WillAyd
