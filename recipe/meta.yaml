@@ -10,7 +10,7 @@ source:
   sha256: 32f42e322fb903d0e189a4c10b75ba70d90958cc4f66a1781ed027f1a1d14586
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
   skip: True  # [py2k]
 
@@ -35,7 +35,7 @@ test:
 
 about:
   home: http://pandas.pydata.org
-  license: BSD 3-clause
+  license: BSD-3-Clause
   license_file: LICENSE
   summary: 'High-performance, easy-to-use data structures and data analysis tools.'
 
