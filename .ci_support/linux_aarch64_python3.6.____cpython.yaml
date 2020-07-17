@@ -9,7 +9,7 @@ cdt_arch:
 cdt_name:
 - cos7
 channel_sources:
-- conda-forge,c4aarch64,defaults
+- conda-forge
 channel_targets:
 - conda-forge rc
 cxx_compiler:
@@ -25,4 +25,4 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.8'
+- 3.6.* *_cpython
