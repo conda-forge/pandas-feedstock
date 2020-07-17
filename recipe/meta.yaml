@@ -20,12 +20,12 @@ requirements:
   host:
     - python
     - pip
-    - cython >=0.28.2
+    - cython >=0.29.16
     - numpy>=1.15.4
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - python-dateutil >=2.6.1
+    - python-dateutil >=2.7.3
     - pytz >=2017.2
 
 test:
