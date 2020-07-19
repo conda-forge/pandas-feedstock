@@ -2,4 +2,4 @@ numpy:       # [aarch64]
   - '1.16'   # [aarch64]
 
 channel_targets:
-  - conda-forge rc
+  - conda-forge pandas_rc
