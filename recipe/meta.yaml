@@ -11,9 +11,8 @@ source:
     - patches/0001-PKG-No-error-for-osx.patch
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install --no-deps --ignore-installed ."
-  skip: True  # [py2k]
 
 requirements:
   build:
@@ -23,8 +22,9 @@ requirements:
     - python
     - pip
     - cython >=0.29.16
-    - numpy ==1.15.4  # [py != 38]
-    - numpy ==1.17.3  # [py == 38]
+    - numpy 1.15.4  # [(py != 38) and not (aarch64 or ppc64le)]
+    - numpy 1.16  # [(py == 38) and not (aarch64 or ppc64le)]
+    - numpy  # [aarch64 or ppc64le]
   run:
     - python
     - {{ pin_compatible('numpy') }}
