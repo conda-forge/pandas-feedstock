@@ -11,9 +11,8 @@ source:
     - patches/0001-PKG-No-error-for-osx.patch
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install --no-deps --ignore-installed ."
-  skip: True  # [py2k]
 
 requirements:
   build:
