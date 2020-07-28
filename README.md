@@ -5,7 +5,7 @@ Home: http://pandas.pydata.org
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: High-performance, easy-to-use data structures and data analysis tools.
 
@@ -57,24 +57,24 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>linux_numpy1.14python3.6.____cpython</td>
+              <td>linux_numpy1.16python3.6.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=master&jobName=linux&configuration=linux_numpy1.14python3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=master&jobName=linux&configuration=linux_numpy1.16python3.6.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_numpy1.14python3.7.____cpython</td>
+              <td>linux_numpy1.16python3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=master&jobName=linux&configuration=linux_numpy1.14python3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=master&jobName=linux&configuration=linux_numpy1.16python3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_numpy1.14python3.8.____cpython</td>
+              <td>linux_numpy1.16python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=master&jobName=linux&configuration=linux_numpy1.14python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=master&jobName=linux&configuration=linux_numpy1.16python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -113,24 +113,24 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>osx_numpy1.14python3.6.____cpython</td>
+              <td>osx_numpy1.16python3.6.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=master&jobName=osx&configuration=osx_numpy1.14python3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=master&jobName=osx&configuration=osx_numpy1.16python3.6.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_numpy1.14python3.7.____cpython</td>
+              <td>osx_numpy1.16python3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=master&jobName=osx&configuration=osx_numpy1.14python3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=master&jobName=osx&configuration=osx_numpy1.16python3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_numpy1.14python3.8.____cpython</td>
+              <td>osx_numpy1.16python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=master&jobName=osx&configuration=osx_numpy1.14python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=master&jobName=osx&configuration=osx_numpy1.16python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
