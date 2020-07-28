@@ -1,4 +1,4 @@
-{% set version = "1.0.5" %}
+{% set version = "1.1.0" %}
 
 package:
   name: pandas
@@ -6,14 +6,15 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 69c5d920a0b2a9838e677f78f4dde506b95ea8e4d30da25859db6469ded84fa8
+  sha256: b39508562ad0bb3f384b0db24da7d68a2608b9ddc85b1d931ccaaa92d5e45273
+  patches:
+    - patches/0001-PKG-No-error-for-osx.patch
 
 build:
   number: 0
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install --no-deps --ignore-installed .
-  skip: True  # [py2k]
 
 requirements:
   build:
@@ -22,12 +23,14 @@ requirements:
   host:
     - python
     - pip
-    - cython >=0.28.2
-    - numpy
+    - cython >=0.29.16
+    - numpy 1.15.4  # [(py != 38) and not (aarch64 or ppc64le)]
+    - numpy 1.16  # [(py == 38) and not (aarch64 or ppc64le)]
+    - numpy  # [aarch64 or ppc64le]
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - python-dateutil >=2.6.1
+    - python-dateutil >=2.7.3
     - pytz >=2017.2
 
 test:
