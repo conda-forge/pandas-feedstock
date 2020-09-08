@@ -1,4 +1,4 @@
-{% set version = "1.1.1" %}
+{% set version = "1.1.2" %}
 
 package:
   name: pandas
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 53328284a7bb046e2e885fd1b8c078bd896d7fc4575b915d4936f54984a2ba67
+  sha256: b64ffd87a2cfd31b40acd4b92cb72ea9a52a48165aec4c140e78fd69c45d1444
   patches:
     - patches/0001-PKG-No-error-for-osx.patch
 
@@ -41,7 +41,7 @@ about:
   home: http://pandas.pydata.org
   license: BSD-3-Clause
   license_file: LICENSE
-  summary: 'High-performance, easy-to-use data structures and data analysis tools.'
+  summary: High-performance, easy-to-use data structures and data analysis tools.
 
 extra:
   recipe-maintainers:
