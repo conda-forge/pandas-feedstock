@@ -11,7 +11,7 @@ source:
     - patches/0001-PKG-No-error-for-osx.patch
 
 build:
-  number: 0
+  number: 1
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install --no-deps --ignore-installed .
@@ -24,9 +24,7 @@ requirements:
     - python
     - pip
     - cython >=0.29.16
-    - numpy 1.15.4  # [(py != 38) and not (aarch64 or ppc64le)]
-    - numpy 1.16  # [(py == 38) and not (aarch64 or ppc64le)]
-    - numpy  # [aarch64 or ppc64le]
+    - numpy
   run:
     - python
     - {{ pin_compatible('numpy') }}
