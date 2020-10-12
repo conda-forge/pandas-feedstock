@@ -11,7 +11,7 @@ source:
     - patches/0001-PKG-No-error-for-osx.patch
 
 build:
-  number: 1
+  number: 2
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install --no-deps --ignore-installed .
