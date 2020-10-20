@@ -17,5 +17,5 @@ python:
 target_platform:
 - win-64
 zip_keys:
-- - numpy
-  - python
+- - python
+  - numpy
