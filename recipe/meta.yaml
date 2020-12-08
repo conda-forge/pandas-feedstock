@@ -7,8 +7,6 @@ package:
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
   sha256: c81d202f2077dfe09f722ec566ceade4276e92f66b7156214a5b9f7c75fa1be9
-  patches:
-    - patches/0001-PKG-No-error-for-osx.patch
 
 build:
   number: 0
