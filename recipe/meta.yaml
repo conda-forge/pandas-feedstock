@@ -1,4 +1,4 @@
-{% set version = "1.1.4" %}
+{% set version = "1.1.5" %}
 
 package:
   name: pandas
@@ -6,9 +6,7 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: a979d0404b135c63954dea79e6246c45dd45371a88631cdbb4877d844e6de3b6
-  patches:
-    - patches/0001-PKG-No-error-for-osx.patch
+  sha256: f10fc41ee3c75a474d3bdf68d396f10782d013d7f67db99c0efbfd0acb99701b
 
 build:
   number: 0
