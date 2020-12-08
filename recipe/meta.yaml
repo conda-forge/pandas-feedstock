@@ -18,7 +18,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - python >
+    - python
     - pip
     - cython >=0.29.16
     - numpy 1.15.4  # [(py != 38) and not (aarch64 or ppc64le)]
