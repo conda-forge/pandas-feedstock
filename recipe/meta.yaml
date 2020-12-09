@@ -10,20 +10,24 @@ source:
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install --no-deps --ignore-installed ."
-  skip: true  # [py<37]
+  script:
+    - export PYTHONUNBUFFERED=1  # [ppc64le]
+    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
+    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . --global-option="build_ext" --global-option="-j${CPU_COUNT}" --no-use-pep517  # [unix]
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
     - python
     - pip
     - cython >=0.29.16
-    - numpy 1.15.4  # [(py != 38) and not (aarch64 or ppc64le)]
-    - numpy 1.16  # [(py == 38) and not (aarch64 or ppc64le)]
-    - numpy  # [aarch64 or ppc64le]
+    - numpy
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -38,7 +42,7 @@ about:
   home: http://pandas.pydata.org
   license: BSD-3-Clause
   license_file: LICENSE
-  summary: 'High-performance, easy-to-use data structures and data analysis tools.'
+  summary: High-performance, easy-to-use data structures and data analysis tools.
 
 extra:
   recipe-maintainers:
@@ -48,3 +52,4 @@ extra:
     - ocefpaf
     - TomAugspurger
     - WillAyd
+    - simonjayhawkins

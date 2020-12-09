@@ -11,7 +11,7 @@ cdt_name:
 channel_sources:
 - conda-forge
 channel_targets:
-- conda-forge pandas_rc
+- conda-forge main
 cxx_compiler:
 - gxx
 cxx_compiler_version:
@@ -19,17 +19,13 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
 numpy:
-- '1.16'
+- '1.18'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-<<<<<<< HEAD:.ci_support/linux_aarch64_python3.7.____cpython.yaml
-- 3.7.* *_cpython
-=======
-- 3.6.* *_cpython
->>>>>>> upstream/master:.ci_support/linux_aarch64_numpy1.16python3.6.____cpython.yaml
+- 3.6.* *_73_pypy
 target_platform:
 - linux-aarch64
 zip_keys:
