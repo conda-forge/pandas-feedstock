@@ -14,28 +14,18 @@ cxx_compiler_version:
 - '9'
 docker_image:
 - quay.io/condaforge/linux-anvil-comp7
-<<<<<<< HEAD:.ci_support/linux_64_python3.7.____cpython.yaml
-=======
 numpy:
 - '1.16'
->>>>>>> upstream/master:.ci_support/linux_64_numpy1.16python3.6.____cpython.yaml
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-<<<<<<< HEAD:.ci_support/linux_64_python3.7.____cpython.yaml
-- 3.7.* *_cpython
-=======
 - 3.6.* *_cpython
->>>>>>> upstream/master:.ci_support/linux_64_numpy1.16python3.6.____cpython.yaml
 target_platform:
 - linux-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-<<<<<<< HEAD:.ci_support/linux_64_python3.7.____cpython.yaml
-=======
 - - python
   - numpy
->>>>>>> upstream/master:.ci_support/linux_64_numpy1.16python3.6.____cpython.yaml

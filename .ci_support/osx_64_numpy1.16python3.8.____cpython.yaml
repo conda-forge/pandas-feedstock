@@ -14,28 +14,18 @@ cxx_compiler_version:
 - '11'
 macos_machine:
 - x86_64-apple-darwin13.4.0
-<<<<<<< HEAD:.ci_support/osx_64_python3.7.____cpython.yaml
-=======
 numpy:
 - '1.16'
->>>>>>> upstream/master:.ci_support/osx_64_numpy1.16python3.8.____cpython.yaml
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-<<<<<<< HEAD:.ci_support/osx_64_python3.7.____cpython.yaml
-- 3.7.* *_cpython
-=======
 - 3.8.* *_cpython
->>>>>>> upstream/master:.ci_support/osx_64_numpy1.16python3.8.____cpython.yaml
 target_platform:
 - osx-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-<<<<<<< HEAD:.ci_support/osx_64_python3.7.____cpython.yaml
-=======
 - - python
   - numpy
->>>>>>> upstream/master:.ci_support/osx_64_numpy1.16python3.8.____cpython.yaml
