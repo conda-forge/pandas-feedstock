@@ -1,4 +1,4 @@
-{% set version = "1.1.0rc0" %}
+{% set version = "1.2.0rc0" %}
 
 package:
   name: pandas
@@ -6,25 +6,29 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 87bec0cca6e2435dc96bf063cfa332cd11825b48d6199974916acaff5d80ea80
-  patches:
-    - patches/0001-PKG-No-error-for-osx.patch
+  sha256: c81d202f2077dfe09f722ec566ceade4276e92f66b7156214a5b9f7c75fa1be9
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install --no-deps --ignore-installed ."
+  number: 0
+  script:
+    - export PYTHONUNBUFFERED=1  # [ppc64le]
+    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
+    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . --global-option="build_ext" --global-option="-j${CPU_COUNT}" --no-use-pep517  # [unix]
+  skip: true  # [py<37]
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
     - python
     - pip
     - cython >=0.29.16
-    - numpy 1.15.4  # [(py != 38) and not (aarch64 or ppc64le)]
-    - numpy 1.16  # [(py == 38) and not (aarch64 or ppc64le)]
-    - numpy  # [aarch64 or ppc64le]
+    - numpy
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -39,7 +43,7 @@ about:
   home: http://pandas.pydata.org
   license: BSD-3-Clause
   license_file: LICENSE
-  summary: 'High-performance, easy-to-use data structures and data analysis tools.'
+  summary: High-performance, easy-to-use data structures and data analysis tools.
 
 extra:
   recipe-maintainers:
@@ -49,3 +53,4 @@ extra:
     - ocefpaf
     - TomAugspurger
     - WillAyd
+    - simonjayhawkins
