@@ -27,7 +27,9 @@ requirements:
     - python
     - pip
     - cython >=0.29.16
-    - numpy
+    - numpy 1.15.4  # [(py != 38) and not (aarch64 or ppc64le)]
+    - numpy 1.16  # [(py == 38) and not (aarch64 or ppc64le)]
+    - numpy  # [aarch64 or ppc64le]
   run:
     - python
     - {{ pin_compatible('numpy') }}
