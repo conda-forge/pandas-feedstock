@@ -321,4 +321,5 @@ Feedstock Maintainers
 * [@jreback](https://github.com/jreback/)
 * [@msarahan](https://github.com/msarahan/)
 * [@ocefpaf](https://github.com/ocefpaf/)
+* [@simonjayhawkins](https://github.com/simonjayhawkins/)
 
