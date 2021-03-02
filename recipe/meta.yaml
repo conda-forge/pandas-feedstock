@@ -1,4 +1,4 @@
-{% set version = "1.2.2" %}
+{% set version = "1.2.3" %}
 
 package:
   name: pandas
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 14ed84b463e9b84c8ff9308a79b04bf591ae3122a376ee0f62c68a1bd917a773
+  sha256: df6f10b85aef7a5bb25259ad651ad1cc1d6bb09000595cab47e718cbac250b1d
 
 build:
   number: 0
