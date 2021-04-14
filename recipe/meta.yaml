@@ -14,6 +14,8 @@ build:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . --global-option="build_ext" --global-option="-j${CPU_COUNT}" --no-use-pep517  # [unix]
+  entry_points:
+    - matplotlib = pandas:plotting._matplotlib
   skip: true  # [py<37]
 
 requirements:
@@ -27,7 +29,7 @@ requirements:
     - python
     - pip
     - cython >=0.29.16
-    - numpy
+    - numpy >=1.17.3
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -35,6 +37,10 @@ requirements:
     - pytz >=2017.2
 
 test:
+  requires:
+    - hypothesis >=3.58
+    - pytest >=5.0.1
+    - pytest-xdist 
   imports:
     - pandas
 
