@@ -34,6 +34,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.7.3
     - pytz >=2017.2
+    - setuptools
 
 test:
   imports:
