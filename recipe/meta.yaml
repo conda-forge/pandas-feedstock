@@ -25,7 +25,6 @@ requirements:
     # - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cython >=0.29.21
   host:
     - python >=3.7.1
     - pip
@@ -38,7 +37,8 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.7.3
     - pytz >=2017.3
-    # Recommended dependencies to achieve large speedups
+    # Recommended dependencies to achieve large speedups 
+    # see https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html#recommended-dependencies
     - numexpr >=2.6.8
     - bottleneck >=1.2.1
 
@@ -49,9 +49,6 @@ test:
     - pytest-xdist 
   imports:
     - pandas
-  # To run all tests, but it increases time for building the package
-  #commands:
-  #  - python -c 'import pandas; pandas.test()'
 
 about:
   home: http://pandas.pydata.org
