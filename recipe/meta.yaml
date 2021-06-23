@@ -25,13 +25,16 @@ requirements:
     # - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - cython >=0.29.21
   host:
-    - python
+    - python >=3.7.1
     - pip
-    - cython >=0.29.16
+    - cython >=0.29.21
     - numpy >=1.17.3
+    - setuptools >=38.6.0
+    - wheel
   run:
-    - python
+    - python >=3.7.1
     - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.7.3
     - pytz >=2017.3
@@ -39,7 +42,7 @@ requirements:
 test:
   requires:
     - hypothesis >=3.58
-    - pytest >=5.0.1
+    - pytest >=6.0
     - pytest-xdist 
   imports:
     - pandas
@@ -47,8 +50,11 @@ test:
 about:
   home: http://pandas.pydata.org
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE
   summary: High-performance, easy-to-use data structures and data analysis tools.
+  dev_url: https://github.com/pandas-dev/pandas
+  doc_url: https://pandas.pydata.org/pandas-docs/stable/
 
 extra:
   recipe-maintainers:
