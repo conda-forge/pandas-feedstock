@@ -38,6 +38,9 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.7.3
     - pytz >=2017.3
+    # Recommended dependencies to achieve large speedups
+    - numexpr >=2.6.8
+    - bottleneck >=1.2.1
 
 test:
   requires:
@@ -46,6 +49,9 @@ test:
     - pytest-xdist 
   imports:
     - pandas
+  # To run all tests, but it increases time for building the package
+  #commands:
+  #  - python -c 'import pandas; pandas.test()'
 
 about:
   home: http://pandas.pydata.org
