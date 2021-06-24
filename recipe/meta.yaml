@@ -1,4 +1,4 @@
-{% set version = "1.2.4" %}
+{% set version = "1.2.5" %}
 
 package:
   name: pandas
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 649ecab692fade3cbfcf967ff936496b0cfba0af00a55dfaacd82bdda5cb2279
+  sha256: 14abb8ea73fce8aebbb1fb44bec809163f1c55241bcc1db91c2c780e97265033
 
 build:
   number: 0
@@ -26,20 +26,26 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - python
+    - python >=3.7.1
     - pip
-    - cython >=0.29.16
+    - cython >=0.29.21
     - numpy >=1.17.3
+    - setuptools >=38.6.0
+    - wheel
   run:
-    - python
+    - python >=3.7.1
     - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.7.3
     - pytz >=2017.3
+    # Recommended dependencies to achieve large speedups 
+    # see https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html#recommended-dependencies
+    - numexpr >=2.6.8
+    - bottleneck >=1.2.1
 
 test:
   requires:
     - hypothesis >=3.58
-    - pytest >=5.0.1
+    - pytest >=6.0
     - pytest-xdist 
   imports:
     - pandas
@@ -47,8 +53,11 @@ test:
 about:
   home: http://pandas.pydata.org
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE
   summary: High-performance, easy-to-use data structures and data analysis tools.
+  dev_url: https://github.com/pandas-dev/pandas
+  doc_url: https://pandas.pydata.org/pandas-docs/stable/
 
 extra:
   recipe-maintainers:
