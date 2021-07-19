@@ -9,13 +9,14 @@ source:
   sha256: c554e6c9cf2d5ea1aba5979cc837b3649539ced0e18ece186f055450c86622e2
 
 build:
-  number: 2
+  number: 3
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . --global-option="build_ext" --global-option="-j${CPU_COUNT}" --no-use-pep517  # [unix]
   entry_points:
     - matplotlib = pandas:plotting._matplotlib
+  skip: true  # [py<37]
 
 requirements:
   build:
@@ -41,7 +42,7 @@ requirements:
     - numexpr >=2.7.0
     - bottleneck >=1.2.1
   run_constrained:
-    - python >=3.7.1
+    - python !=3.7.0
 
 test:
   requires:
