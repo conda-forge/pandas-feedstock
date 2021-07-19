@@ -9,7 +9,7 @@ source:
   sha256: c554e6c9cf2d5ea1aba5979cc837b3649539ced0e18ece186f055450c86622e2
 
 build:
-  number: 0
+  number: 2
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
@@ -37,7 +37,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.7.3
     - pytz >=2017.3
-    # Recommended dependencies to achieve large speedups 
+    # Recommended dependencies to achieve large speedups
     # see https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html#recommended-dependencies
     - numexpr >=2.7.0
     - bottleneck >=1.2.1
