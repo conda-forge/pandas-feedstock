@@ -20,17 +20,14 @@ build:
 
 requirements:
   build:
-    # - python                                 # [build_platform != target_platform]
-    # - cython                                 # [build_platform != target_platform]
-    # - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
     - python
     - pip
-    - cython >=0.29.21
+    - cython >=0.29.21,<3
     - numpy
-    - setuptools >=38.6.0
+    - setuptools >=51.0.0
     - wheel
   run:
     - python >=3.7.1
@@ -44,11 +41,14 @@ requirements:
 
 test:
   requires:
+    - pip
     - hypothesis >=3.58
     - pytest >=6.0
     - pytest-xdist 
   imports:
     - pandas
+  commands:
+    - pip check
 
 about:
   home: http://pandas.pydata.org
