@@ -9,7 +9,7 @@ source:
   sha256: c0d453fda0a87d51f5fe65c16a89b64f13a736f4f17c0202cfcff67e6b341a57
 
 build:
-  number: 0
+  number: 1
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
@@ -34,7 +34,6 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.7.3
     - pytz >=2017.2
-    - setuptools
 
 test:
   imports:
