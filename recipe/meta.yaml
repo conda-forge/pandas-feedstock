@@ -14,7 +14,7 @@ build:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . --global-option="build_ext" --global-option="-j${CPU_COUNT}" --no-use-pep517  # [unix]
-  skip: true  # [py<37]
+  skip: true  # [py<38]
 
 requirements:
   build:
