@@ -9,7 +9,7 @@ source:
   sha256: 92bc1fc585f1463ca827b45535957815b7deb218c549b7c18402c322c7549a12
 
 build:
-  number: 1
+  number: 2
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
@@ -27,17 +27,22 @@ requirements:
   host:
     - python
     - pip
-    - cython >=0.29.16
+    - setuptools >=51.0.0
+    - cython >=0.29.24,<3
     - numpy
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - python-dateutil >=2.7.3
-    - pytz >=2017.2
+    - python-dateutil >=2.8.1
+    - pytz >=2020.1
 
 test:
   imports:
     - pandas
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: http://pandas.pydata.org
