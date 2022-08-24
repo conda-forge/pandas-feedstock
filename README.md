@@ -360,5 +360,5 @@ Feedstock Maintainers
 * [@mroeschke](https://github.com/mroeschke/)
 * [@datapythonista](https://github.com/datapythonista/)
 * [@phofl](https://github.com/phofl/)
-* [@lithmoas1](https://github.com/lithmoas1/)
+* [@lithomas1](https://github.com/lithomas1/)
 * [@marcogorelli](https://github.com/marcogorelli/)
