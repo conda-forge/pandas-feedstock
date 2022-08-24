@@ -358,4 +358,8 @@ Feedstock Maintainers
 * [@msarahan](https://github.com/msarahan/)
 * [@ocefpaf](https://github.com/ocefpaf/)
 * [@simonjayhawkins](https://github.com/simonjayhawkins/)
-
+* [@mroeschke](https://github.com/mroeschke/)
+* [@datapythonista](https://github.com/datapythonista/)
+* [@phofl](https://github.com/phofl/)
+* [@lithomas1](https://github.com/lithomas1/)
+* [@marcogorelli](https://github.com/marcogorelli/)
