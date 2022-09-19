@@ -1,4 +1,4 @@
-{% set version = "1.4.4" %}
+{% set version = "1.5.0" %}
 
 package:
   name: pandas
@@ -6,14 +6,14 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: ab6c0d738617b675183e5f28db32b5148b694ad9bba0a40c3ea26d96b431db67
+  sha256: 3ee61b881d2f64dd90c356eb4a4a4de75376586cd3c9341c6c0fcaae18d52977
 
 build:
   number: 0
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
-    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . --global-option="build_ext" --global-option="-j${CPU_COUNT}" --no-use-pep517  # [unix]
+    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . --global-option="build_ext" --global-option="-j1" --no-use-pep517  # [unix]
   skip: true  # [py<38]
 
 requirements:
