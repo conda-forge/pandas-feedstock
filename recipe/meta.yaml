@@ -41,7 +41,9 @@ test:
     - pandas
   commands:
     - pip check
-    - python -c "import pandas; pandas.test()"
+    # Skip test suite on PyPy as it segfaults there
+    # xref: https://github.com/conda-forge/pandas-feedstock/issues/148
+    - python -c "import pandas; pandas.test()"  # [python_impl == "cpython"]
   requires:
     - pip
     - pytest
