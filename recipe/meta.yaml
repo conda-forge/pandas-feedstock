@@ -9,7 +9,7 @@ source:
   sha256: 220b98d15cee0b2cd839a6358bd1f273d0356bf964c1a1aeb32d47db0215488b
 
 build:
-  number: 0
+  number: 1
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
