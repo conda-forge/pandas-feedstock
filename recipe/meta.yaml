@@ -54,7 +54,7 @@ about:
   license: BSD-3-Clause
   license_file: LICENSE
   summary: >-
-    High-performance, easy-to-use data structures and data analysis tools.
+    Powerful data structures for data analysis, time series, and statistics
 
 extra:
   recipe-maintainers:
