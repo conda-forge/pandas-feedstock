@@ -7,7 +7,7 @@ Package license: BSD-3-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pandas-feedstock/blob/main/LICENSE.txt)
 
-Summary: High-performance, easy-to-use data structures and data analysis tools.
+Summary: Powerful data structures for data analysis, time series, and statistics
 
 Current build status
 ====================
