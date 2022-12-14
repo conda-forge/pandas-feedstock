@@ -53,7 +53,8 @@ about:
   home: http://pandas.pydata.org
   license: BSD-3-Clause
   license_file: LICENSE
-  summary: High-performance, easy-to-use data structures and data analysis tools.
+  summary: >-
+    High-performance, easy-to-use data structures and data analysis tools.
 
 extra:
   recipe-maintainers:
