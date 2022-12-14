@@ -55,6 +55,8 @@ about:
   license_file: LICENSE
   summary: >-
     Powerful data structures for data analysis, time series, and statistics
+  doc_url: https://pandas.pydata.org/pandas-docs/stable
+  dev_url: https://github.com/pandas-dev/pandas
 
 extra:
   recipe-maintainers:
