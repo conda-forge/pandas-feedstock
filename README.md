@@ -9,6 +9,10 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pandas-feedstoc
 
 Summary: Powerful data structures for data analysis, time series, and statistics
 
+Development: https://github.com/pandas-dev/pandas
+
+Documentation: https://pandas.pydata.org/pandas-docs/stable
+
 Current build status
 ====================
 
