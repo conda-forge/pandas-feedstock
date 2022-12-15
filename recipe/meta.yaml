@@ -43,8 +43,8 @@ test:
     - pip check
     # Skip test suite on PyPy as it segfaults there
     # xref: https://github.com/conda-forge/pandas-feedstock/issues/148
-    {% set extra = "extra_args=['-m not clipboard and not single_cpu', '--skip-slow', '--skip-network', '--skip-db', '-n=2']" %}
-    - python -c "import pandas; pandas.test({{ extra }})"  # [python_impl == "cpython"]
+    {% set extra_args = ["-m not clipboard and not single_cpu", "--skip-slow", "--skip-network", "--skip-db", "-n=2"] %}
+    - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython"]
   requires:
     - pip
     - pytest >=6.0
