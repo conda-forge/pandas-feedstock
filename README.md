@@ -11,7 +11,7 @@ Summary: Powerful data structures for data analysis, time series, and statistics
 
 Development: https://github.com/pandas-dev/pandas
 
-Documentation: https://pandas.pydata.org/pandas-docs/stable
+Documentation: https://pandas.pydata.org/docs/
 
 Current build status
 ====================
