@@ -46,10 +46,10 @@ test:
     #
     # Also skip `test_rolling_var_numerical_issues` on `ppc64le` as it is a known test failure.
     # xref: https://github.com/conda-forge/pandas-feedstock/issues/149
-    {% set extra_args = ["--skip-slow", "--skip-network", "--skip-db", "-n=2"] %}
     {% set markers = ["not clipboard", "not single_cpu"] %}
     {% set markers = markers + ["not arm_slow"] %}   # [aarch64 or ppc64le]
-    {% set extra_args = ["-m " + " and ".join(markers)] + extra_args %}
+    {% set extra_args = ["-m " + " and ".join(markers)] %}
+    {% set extra_args = extra_args + ["--skip-slow", "--skip-network", "--skip-db", "-n=2"] %}
     {% set extra_args = extra_args + ["-k not test_rolling_var_numerical_issues"] %}   # [ppc64le]
     - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython"]
   requires:
