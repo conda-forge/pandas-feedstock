@@ -37,6 +37,8 @@ requirements:
     - pytz >=2020.1
 
 test:
+  source_files:
+    - pyproject.toml
   imports:
     - pandas
   commands:
