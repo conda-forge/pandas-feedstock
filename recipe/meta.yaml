@@ -64,6 +64,7 @@ test:
     - boto3
     - hypothesis
     - psutil
+    - tomli  # [py<311]
 
 about:
   home: http://pandas.pydata.org
