@@ -51,7 +51,7 @@ test:
     {% set extra_args = ["-m " + " and ".join(markers)] %}
     {% set extra_args = extra_args + ["--skip-slow", "--skip-network", "--skip-db", "-n=2"] %}
     {% set extra_args = extra_args + ["-k not test_rolling_var_numerical_issues"] %}   # [ppc64le]
-    - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython"]
+    - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython" and not ppc64le]
   requires:
     - pip
     - pytest >=6.0
