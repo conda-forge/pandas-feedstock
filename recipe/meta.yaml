@@ -9,7 +9,7 @@ source:
   sha256: 220b98d15cee0b2cd839a6358bd1f273d0356bf964c1a1aeb32d47db0215488b
 
 build:
-  number: 0
+  number: 1
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
@@ -41,14 +41,36 @@ test:
     - pandas
   commands:
     - pip check
+    # Skip test suite on PyPy as it segfaults there
+    # xref: https://github.com/conda-forge/pandas-feedstock/issues/148
+    #
+    # Also skip `test_rolling_var_numerical_issues` on `ppc64le` as it is a known test failure.
+    # xref: https://github.com/conda-forge/pandas-feedstock/issues/149
+    {% set markers = ["not clipboard", "not single_cpu"] %}
+    {% set markers = markers + ["not arm_slow"] %}   # [aarch64 or ppc64le]
+    {% set extra_args = ["-m " + " and ".join(markers)] %}
+    {% set extra_args = extra_args + ["--skip-slow", "--skip-network", "--skip-db", "-n=2"] %}
+    {% set extra_args = extra_args + ["-k not test_rolling_var_numerical_issues"] %}   # [ppc64le]
+    - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython"]
   requires:
     - pip
+    - pytest >=6.0
+    - pytest-asyncio >=0.17
+    - pytest-xdist >=1.31
+    - pytest-cov
+    - boto3
+    - hypothesis
+    - psutil
+    - tomli  # [py<311]
 
 about:
   home: http://pandas.pydata.org
   license: BSD-3-Clause
   license_file: LICENSE
-  summary: High-performance, easy-to-use data structures and data analysis tools.
+  summary: >-
+    Powerful data structures for data analysis, time series, and statistics
+  doc_url: https://pandas.pydata.org/docs/
+  dev_url: https://github.com/pandas-dev/pandas
 
 extra:
   recipe-maintainers:
