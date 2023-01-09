@@ -60,6 +60,9 @@ test:
     - pytest-cov
     - boto3
     - hypothesis
+    # Workaround recent NumPy 1.24 deprecations, which cause test failures.
+    # xref: https://github.com/conda-forge/pandas-feedstock/issues/150
+    - numpy <1.24
     - psutil
     - tomli  # [py<311]
 
