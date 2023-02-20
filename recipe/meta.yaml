@@ -24,6 +24,7 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - versioneer
   host:
     - python
     - pip
