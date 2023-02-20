@@ -24,13 +24,13 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - versioneer
   host:
     - python
     - pip
     - setuptools >=51.0.0
     - cython >=0.29.24,<3
     - numpy
+    - versioneer
   run:
     - python
     - {{ pin_compatible('numpy') }}
