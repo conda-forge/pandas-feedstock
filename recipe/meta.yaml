@@ -1,4 +1,4 @@
-{% set version = "1.5.0rc0" %}
+{% set version = "2.0.0rc0" %}
 
 package:
   name: pandas
@@ -6,14 +6,14 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: dac53ad9e6c45e1dae2263a6789aab79aa3b24b8974760ce22febe05b0b63865
+  sha256: cf960fc1f2545114b9ed1a0f025d6de63c891df31640e454e333e3b38504d36b
 
 build:
   number: 0
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
-    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . --global-option="build_ext" --global-option="-j${CPU_COUNT}" --no-use-pep517  # [unix]
+    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . --global-option="build_ext" --global-option="-j1" --no-use-pep517  # [unix]
   skip: true  # [py<38]
 
 requirements:
@@ -27,23 +27,55 @@ requirements:
   host:
     - python
     - pip
-    - cython >=0.29.16
+    - setuptools >=51.0.0
+    - cython >=0.29.24,<3
     - numpy
+    - versioneer
+    - tomli  # [py<311]
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - python-dateutil >=2.7.3
-    - pytz >=2017.2
+    - python-dateutil >=2.8.1
+    - pytz >=2020.1
 
 test:
   imports:
     - pandas
+  commands:
+    - pip check
+    # Skip test suite on PyPy as it segfaults there
+    # xref: https://github.com/conda-forge/pandas-feedstock/issues/148
+    #
+    # Also skip `test_rolling_var_numerical_issues` on `ppc64le` as it is a known test failure.
+    # xref: https://github.com/conda-forge/pandas-feedstock/issues/149
+    {% set markers = ["not clipboard", "not single_cpu"] %}
+    {% set markers = markers + ["not arm_slow"] %}   # [aarch64 or ppc64le]
+    {% set extra_args = ["-m " + " and ".join(markers)] %}
+    {% set extra_args = extra_args + ["--skip-slow", "--skip-network", "--skip-db", "-n=2"] %}
+    {% set extra_args = extra_args + ["-k not test_rolling_var_numerical_issues"] %}   # [ppc64le]
+    - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython"]
+  requires:
+    - pip
+    - pytest >=6.0
+    - pytest-asyncio >=0.17
+    - pytest-xdist >=1.31
+    - pytest-cov
+    - boto3
+    - hypothesis
+    # Workaround recent NumPy 1.24 deprecations, which cause test failures.
+    # xref: https://github.com/conda-forge/pandas-feedstock/issues/150
+    - numpy <1.24
+    - psutil
+    - tomli  # [py<311]
 
 about:
   home: http://pandas.pydata.org
   license: BSD-3-Clause
   license_file: LICENSE
-  summary: High-performance, easy-to-use data structures and data analysis tools.
+  summary: >-
+    Powerful data structures for data analysis, time series, and statistics
+  doc_url: https://pandas.pydata.org/docs/
+  dev_url: https://github.com/pandas-dev/pandas
 
 extra:
   recipe-maintainers:
@@ -54,3 +86,8 @@ extra:
     - TomAugspurger
     - WillAyd
     - simonjayhawkins
+    - mroeschke
+    - datapythonista
+    - phofl
+    - lithomas1
+    - marcogorelli
