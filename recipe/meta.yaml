@@ -31,6 +31,7 @@ requirements:
     - cython >=0.29.24,<3
     - numpy
     - versioneer
+    - tomli  # [py<311]
   run:
     - python
     - {{ pin_compatible('numpy') }}
