@@ -1,4 +1,4 @@
-{% set version = "1.5.3" %}
+{% set version = "2.0.0" %}
 
 package:
   name: pandas
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 74a3fd7e5a7ec052f183273dc7b0acd3a863edf7520f5d3a1765c04ffdb3b0b1
+  sha256: cda9789e61b44463c1c4fe17ef755de77bcd13b09ba31c940d20f193d63a5dc8
 
 build:
   number: 0
@@ -30,11 +30,14 @@ requirements:
     - setuptools >=51.0.0
     - cython >=0.29.24,<3
     - numpy
+    - versioneer
+    - tomli  # [py<311]
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.8.1
     - pytz >=2020.1
+    - python-tzdata >=2022a
 
 test:
   imports:
