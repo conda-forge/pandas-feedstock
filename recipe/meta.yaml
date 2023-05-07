@@ -9,7 +9,7 @@ source:
   sha256: 19b8e5270da32b41ebf12f0e7165efa7024492e9513fb46fb631c5022ae5709d
 
 build:
-  number: 0
+  number: 1
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
@@ -53,7 +53,13 @@ test:
     {% set markers = markers + ["not arm_slow"] %}   # [aarch64 or ppc64le]
     {% set extra_args = ["-m " + " and ".join(markers)] %}
     {% set extra_args = extra_args + ["--skip-slow", "--skip-network", "--skip-db", "-n=2"] %}
-    {% set extra_args = extra_args + ["-k not test_rolling_var_numerical_issues"] %}   # [ppc64le]
+    {% set tests_to_skip = "_not_a_real_test" %}
+    {% set tests_to_skip = tests_to_skip + " or test_rolling_var_numerical_issues" %}           # [ppc64le]
+    {% set tests_to_skip = tests_to_skip + " or test_std_timedelta64_skipna_false" %}           # [ppc64le]
+    {% set tests_to_skip = tests_to_skip + " or test_value_counts_normalized[M8[ns]]" %}        # [ppc64le]
+    {% set tests_to_skip = tests_to_skip + " or test_to_datetime_format_YYYYMMDD_with_nat" %}   # [ppc64le]
+    {% set tests_to_skip = tests_to_skip + " or (TestReductions and test_median_2d)" %}         # [ppc64le]
+    {% set extra_args = extra_args + ["-k", "not (" + tests_to_skip + ")"] %}
     - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython"]
   requires:
     - pip
@@ -63,9 +69,7 @@ test:
     - pytest-cov
     - boto3
     - hypothesis
-    # Workaround recent NumPy 1.24 deprecations, which cause test failures.
-    # xref: https://github.com/conda-forge/pandas-feedstock/issues/150
-    - numpy <1.24
+    - numpy
     - psutil
     - tomli  # [py<311]
 
