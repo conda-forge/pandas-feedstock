@@ -9,7 +9,7 @@ source:
   sha256: 19b8e5270da32b41ebf12f0e7165efa7024492e9513fb46fb631c5022ae5709d
 
 build:
-  number: 0
+  number: 1
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
@@ -63,9 +63,7 @@ test:
     - pytest-cov
     - boto3
     - hypothesis
-    # Workaround recent NumPy 1.24 deprecations, which cause test failures.
-    # xref: https://github.com/conda-forge/pandas-feedstock/issues/150
-    - numpy <1.24
+    - numpy
     - psutil
     - tomli  # [py<311]
 
