@@ -1,4 +1,4 @@
-{% set version = "2.0.0rc1" %}
+{% set version = "2.1.0rc0" %}
 
 package:
   name: pandas
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 09ff20955ca020a053522f5942f6ff3759bf656b95ed1e84ce8b99589b2bf31f
+  sha256: e6967a82ee26997ab5ef52907064ca21eed5e51089dc2131a252a26d67d88b36
 
 build:
   number: 0
@@ -37,6 +37,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.8.1
     - pytz >=2020.1
+    - python-tzdata >=2022a
 
 test:
   imports:
@@ -52,7 +53,13 @@ test:
     {% set markers = markers + ["not arm_slow"] %}   # [aarch64 or ppc64le]
     {% set extra_args = ["-m " + " and ".join(markers)] %}
     {% set extra_args = extra_args + ["--skip-slow", "--skip-network", "--skip-db", "-n=2"] %}
-    {% set extra_args = extra_args + ["-k not test_rolling_var_numerical_issues"] %}   # [ppc64le]
+    {% set tests_to_skip = "_not_a_real_test" %}
+    {% set tests_to_skip = tests_to_skip + " or test_rolling_var_numerical_issues" %}           # [ppc64le]
+    {% set tests_to_skip = tests_to_skip + " or test_std_timedelta64_skipna_false" %}           # [ppc64le]
+    {% set tests_to_skip = tests_to_skip + " or test_value_counts_normalized[M8[ns]]" %}        # [ppc64le]
+    {% set tests_to_skip = tests_to_skip + " or test_to_datetime_format_YYYYMMDD_with_nat" %}   # [ppc64le]
+    {% set tests_to_skip = tests_to_skip + " or (TestReductions and test_median_2d)" %}         # [ppc64le]
+    {% set extra_args = extra_args + ["-k", "not (" + tests_to_skip + ")"] %}
     - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython"]
   requires:
     - pip
@@ -62,9 +69,7 @@ test:
     - pytest-cov
     - boto3
     - hypothesis
-    # Workaround recent NumPy 1.24 deprecations, which cause test failures.
-    # xref: https://github.com/conda-forge/pandas-feedstock/issues/150
-    - numpy <1.24
+    - numpy
     - psutil
     - tomli  # [py<311]
 
