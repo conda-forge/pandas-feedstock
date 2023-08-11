@@ -12,8 +12,7 @@ build:
   number: 0
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
-    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
-    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . --global-option="build_ext" --global-option="-j1" --no-use-pep517  # [unix]
+    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .
   skip: true  # [py<38]
 
 requirements:
@@ -27,10 +26,11 @@ requirements:
   host:
     - python
     - pip
-    - setuptools >=51.0.0
     - cython >=0.29.24,<3
     - numpy
     - versioneer
+    - meson = 1.0.1
+    - meson-python = 0.13.1
     - tomli  # [py<311]
   run:
     - python
