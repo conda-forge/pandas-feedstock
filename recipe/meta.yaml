@@ -50,10 +50,9 @@ test:
     #
     # Also skip `test_rolling_var_numerical_issues` on `ppc64le` as it is a known test failure.
     # xref: https://github.com/conda-forge/pandas-feedstock/issues/149
-    {% set markers = ["not clipboard", "not single_cpu"] %}
+    {% set markers = ["not clipboard", "not single_cpu", "not slow", "not network", "not db"] %}
     {% set markers = markers + ["not arm_slow"] %}   # [aarch64 or ppc64le]
     {% set extra_args = ["-m " + " and ".join(markers)] %}
-    {% set extra_args = extra_args + ["--skip-slow", "--skip-network", "--skip-db", "-n=2"] %}
     {% set tests_to_skip = "_not_a_real_test" %}
     {% set tests_to_skip = tests_to_skip + " or test_rolling_var_numerical_issues" %}           # [ppc64le]
     {% set tests_to_skip = tests_to_skip + " or test_std_timedelta64_skipna_false" %}           # [ppc64le]
