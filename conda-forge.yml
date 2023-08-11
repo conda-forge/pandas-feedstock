@@ -6,7 +6,7 @@ github:
   tooling_branch_name: main
 provider:
   linux_aarch64: default
-  linux_ppc64le: azure
+  linux_ppc64le: travis
   win: azure
 test_on_native_only: true
 conda_build:
