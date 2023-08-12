@@ -1,0 +1,29 @@
+diff --git a/generate_version.py b/generate_version.py
+index 5534f49c0e..a8494d1f5f 100644
+--- a/generate_version.py
++++ b/generate_version.py
+@@ -6,12 +6,22 @@ import versioneer
+ 
+ 
+ def write_version_info(path):
++    version = None
++    git_version = None
++
++    try:
++        import _version_meson
++        version = _version_meson.__version__
++        git_version = _version_meson.__git_version__
++    except ImportError:
++        version = versioneer.get_version()
++        git_version = versioneer.get_versions()["full-revisionid"]
+     if os.environ.get("MESON_DIST_ROOT"):
+         path = os.path.join(os.environ.get("MESON_DIST_ROOT"), path)
+     with open(path, "w", encoding="utf-8") as file:
+-        file.write(f'__version__="{versioneer.get_version()}"\n')
++        file.write(f'__version__="{version}"\n')
+         file.write(
+-            f'__git_version__="{versioneer.get_versions()["full-revisionid"]}"\n'
++            f'__git_version__="{git_version}"\n'
+         )
+ 
+ 

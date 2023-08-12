@@ -7,20 +7,24 @@ package:
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
   sha256: e6967a82ee26997ab5ef52907064ca21eed5e51089dc2131a252a26d67d88b36
+  patches:
+    # This should be fixed for 2.1 final
+    - patches/0001-BLD-fix-incorrect-version.patch
 
 build:
   number: 0
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
-    - MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"
-    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}
+    - MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"  # [unix]
+    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}  # [unix]
+    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
   skip: true  # [py<39]
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
+    - cython >=0.29.33,<3                    # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
