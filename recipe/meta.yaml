@@ -12,8 +12,8 @@ build:
   number: 0
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
-    # set archflags so meson-python generates the appropriate files for cross compiling
-    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .
+    - MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"
+    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}
   skip: true  # [py<39]
 
 requirements:
