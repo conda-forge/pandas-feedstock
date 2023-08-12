@@ -3,7 +3,7 @@ c_compiler:
 channel_sources:
 - conda-forge
 channel_targets:
-- conda-forge pandas_rc
+- conda-forge main
 cxx_compiler:
 - vs2019
 numpy:
@@ -13,13 +13,9 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-<<<<<<<< HEAD:.ci_support/win_64_python3.9.____cpython.yaml
-- 3.9.* *_cpython
-========
-- 3.8.* *_cpython
->>>>>>>> main:.ci_support/win_64_numpy1.21python3.8.____cpythonpython_implcpython.yaml
+- 3.9.* *_73_pypy
 python_impl:
-- cpython
+- pypy
 target_platform:
 - win-64
 zip_keys:

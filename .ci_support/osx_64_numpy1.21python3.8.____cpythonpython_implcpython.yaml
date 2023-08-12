@@ -7,7 +7,7 @@ c_compiler_version:
 channel_sources:
 - conda-forge
 channel_targets:
-- conda-forge pandas_rc
+- conda-forge main
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
@@ -21,15 +21,9 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-<<<<<<<< HEAD:.ci_support/osx_64_python3.10.____cpython.yaml
-- 3.10.* *_cpython
+- 3.8.* *_cpython
 python_impl:
 - cpython
-========
-- 3.9.* *_73_pypy
-python_impl:
-- pypy
->>>>>>>> main:.ci_support/osx_64_numpy1.21python3.9.____73_pypypython_implpypy.yaml
 target_platform:
 - osx-64
 zip_keys:
