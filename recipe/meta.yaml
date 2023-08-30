@@ -10,6 +10,7 @@ source:
   sha256: 62c24c7fc59e42b775ce0679cfa7b14a5f9bfb7643cfbe708c960699e05fb918
 
 build:
+  number: 0
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"  # [unix]
