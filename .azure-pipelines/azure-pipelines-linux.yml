@@ -28,26 +28,6 @@ jobs:
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_64_numpy1.23python3.11.____cp_h28e7358e74
-      linux_ppc64le_numpy1.22python3.10.____cpythonpython_implcpython:
-        CONFIG: linux_ppc64le_numpy1.22python3.10.____cpythonpython_implcpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le
-        SHORT_CONFIG: linux_ppc64le_numpy1.22python3.10.__hddc5bc08ac
-      linux_ppc64le_numpy1.22python3.9.____73_pypypython_implpypy:
-        CONFIG: linux_ppc64le_numpy1.22python3.9.____73_pypypython_implpypy
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le
-        SHORT_CONFIG: linux_ppc64le_numpy1.22python3.9.___haa58f513bc
-      linux_ppc64le_numpy1.22python3.9.____cpythonpython_implcpython:
-        CONFIG: linux_ppc64le_numpy1.22python3.9.____cpythonpython_implcpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le
-        SHORT_CONFIG: linux_ppc64le_numpy1.22python3.9.___hce604159e0
-      linux_ppc64le_numpy1.23python3.11.____cpythonpython_implcpython:
-        CONFIG: linux_ppc64le_numpy1.23python3.11.____cpythonpython_implcpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le
-        SHORT_CONFIG: linux_ppc64le_numpy1.23python3.11.__hd00dde163c
   timeoutInMinutes: 360
 
   steps:
