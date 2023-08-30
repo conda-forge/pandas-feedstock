@@ -1,4 +1,5 @@
-{% set version = "2.0.3" %}
+{% set tests_to_skip = "_not_a_real_test" %}
+{% set version = "2.1.0" %}
 
 package:
   name: pandas
@@ -6,10 +7,10 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: c02f372a88e0d17f36d3093a644c73cfc1788e876a7c4bcb4020a77512e2043c
+  sha256: 62c24c7fc59e42b775ce0679cfa7b14a5f9bfb7643cfbe708c960699e05fb918
 
 build:
-  number: 1
+  number: 0
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
