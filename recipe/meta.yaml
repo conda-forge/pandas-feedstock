@@ -48,6 +48,17 @@ requirements:
 test:
   imports:
     - pandas
+  requires:
+    - pip
+    - pytest >=6.0
+    - pytest-asyncio >=0.17
+    - pytest-xdist >=1.31   # [python_impl == "cpython"]
+    - pytest-cov            # [python_impl == "cpython"]
+    - boto3
+    - hypothesis
+    - numpy
+    - psutil
+    - tomli  # [py<311]
   commands:
     - pip check
     # Skip test suite on PyPy as it segfaults there
@@ -66,17 +77,6 @@ test:
     {% set tests_to_skip = tests_to_skip + " or (TestReductions and test_median_2d)" %}         # [ppc64le]
     {% set extra_args = extra_args + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"] %}
     - python -c "import pandas, sys; sys.exit(pandas.test(extra_args={{ extra_args }}))"
-  requires:
-    - pip
-    - pytest >=6.0
-    - pytest-asyncio >=0.17
-    - pytest-xdist >=1.31   # [python_impl == "cpython"]
-    - pytest-cov            # [python_impl == "cpython"]
-    - boto3
-    - hypothesis
-    - numpy
-    - psutil
-    - tomli  # [py<311]
 
 about:
   home: http://pandas.pydata.org
