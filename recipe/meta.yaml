@@ -59,6 +59,8 @@ test:
     - numpy
     - psutil
     - tomli  # [py<311]
+  source_files:
+    - pyproject.toml
   commands:
     - pip check
     # Skip test suite on PyPy as it segfaults there
