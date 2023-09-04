@@ -7,22 +7,7 @@ language: generic
 
 matrix:
   include:
-    - env: CONFIG=linux_aarch64_numpy1.22python3.10.____cpythonpython_implcpython UPLOAD_PACKAGES=True PLATFORM=linux-aarch64 DOCKER_IMAGE=quay.io/condaforge/linux-anvil-aarch64
-      os: linux
-      arch: arm64
-      dist: focal
-
     - env: CONFIG=linux_aarch64_numpy1.22python3.9.____73_pypypython_implpypy UPLOAD_PACKAGES=True PLATFORM=linux-aarch64 DOCKER_IMAGE=quay.io/condaforge/linux-anvil-aarch64
-      os: linux
-      arch: arm64
-      dist: focal
-
-    - env: CONFIG=linux_aarch64_numpy1.22python3.9.____cpythonpython_implcpython UPLOAD_PACKAGES=True PLATFORM=linux-aarch64 DOCKER_IMAGE=quay.io/condaforge/linux-anvil-aarch64
-      os: linux
-      arch: arm64
-      dist: focal
-
-    - env: CONFIG=linux_aarch64_numpy1.23python3.11.____cpythonpython_implcpython UPLOAD_PACKAGES=True PLATFORM=linux-aarch64 DOCKER_IMAGE=quay.io/condaforge/linux-anvil-aarch64
       os: linux
       arch: arm64
       dist: focal
