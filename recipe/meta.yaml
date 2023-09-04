@@ -24,7 +24,7 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython >=0.29.33,<3                    # [build_platform != target_platform]
+    - cython >=0.29.33                       # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
@@ -33,7 +33,7 @@ requirements:
   host:
     - python
     - pip
-    - cython >=0.29.33,<3
+    - cython >=0.29.33
     - numpy
     - versioneer
     - meson =1.0.1
