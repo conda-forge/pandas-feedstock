@@ -17,12 +17,14 @@ build:
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}  # [unix]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
   skip: true  # [py<39]
+  # debug: only pypy
+  skip: true  # [python_impl != "pypy"]
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython >=0.29.33,<3                    # [build_platform != target_platform]
+    - cython >=0.29.33                       # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
@@ -31,11 +33,11 @@ requirements:
   host:
     - python
     - pip
-    - cython >=0.29.33,<3
+    - cython >=0.29.33
     - numpy
     - versioneer
-    - meson =1.0.1
-    - meson-python =0.13.1
+    - meson
+    - meson-python
     - tomli  # [py<311]
     - ninja
   run:
@@ -48,6 +50,19 @@ requirements:
 test:
   imports:
     - pandas
+  requires:
+    - pip
+    - pytest >=6.0
+    - pytest-asyncio >=0.17
+    - pytest-xdist >=1.31   # [python_impl == "cpython"]
+    - pytest-cov            # [python_impl == "cpython"]
+    - boto3
+    - hypothesis
+    - numpy
+    - psutil
+    - tomli  # [py<311]
+  source_files:
+    - pyproject.toml
   commands:
     - pip check
     # Skip test suite on PyPy as it segfaults there
@@ -65,18 +80,7 @@ test:
     {% set tests_to_skip = tests_to_skip + " or test_to_datetime_format_YYYYMMDD_with_nat" %}   # [ppc64le]
     {% set tests_to_skip = tests_to_skip + " or (TestReductions and test_median_2d)" %}         # [ppc64le]
     {% set extra_args = extra_args + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"] %}
-    - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython"]
-  requires:
-    - pip
-    - pytest >=6.0
-    - pytest-asyncio >=0.17
-    - pytest-xdist >=1.31
-    - pytest-cov
-    - boto3
-    - hypothesis
-    - numpy
-    - psutil
-    - tomli  # [py<311]
+    - python -c "import pandas, sys; sys.exit(pandas.test(extra_args={{ extra_args }}))"
 
 about:
   home: http://pandas.pydata.org
