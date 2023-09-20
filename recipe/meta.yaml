@@ -34,7 +34,7 @@ requirements:
     - cython >=0.29.33,<3
     - numpy
     - versioneer
-    - meson =1.0.1
+    - meson =1.2.1
     - meson-python =0.13.1
     - tomli  # [py<311]
     - ninja
