@@ -89,6 +89,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - anmyachev
     - jreback
     - jorisvandenbossche
     - msarahan
