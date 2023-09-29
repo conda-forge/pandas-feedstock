@@ -13,6 +13,10 @@ build:
   number: 1
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
+    # Cross-compilation stuff vendored from numpy-feedstock
+    # necessary for cross-compilation to point to the right env
+    - export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig  # [ppc64le]
+    - echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt  # [ppc64le]
     - MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"  # [unix]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}  # [unix]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
