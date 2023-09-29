@@ -24,6 +24,10 @@ jobs:
         CONFIG: win_64_numpy1.23python3.11.____cpythonpython_implcpython
         UPLOAD_PACKAGES: 'True'
         SHORT_CONFIG: win_64_numpy1.23python3.11.____cpyt_hfdca1d6b56
+      win_64_numpy1.26python3.12.____cpythonpython_implcpython:
+        CONFIG: win_64_numpy1.26python3.12.____cpythonpython_implcpython
+        UPLOAD_PACKAGES: 'True'
+        SHORT_CONFIG: win_64_numpy1.26python3.12.____cpyt_hbb5f46dd99
   timeoutInMinutes: 360
   variables:
     CONDA_BLD_PATH: D:\\bld\\
