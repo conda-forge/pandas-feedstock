@@ -1,5 +1,4 @@
-{% set tests_to_skip = "_not_a_real_test" %}
-{% set version = "2.1.1" %}
+{% set version = "1.5.3" %}
 
 package:
   name: pandas
@@ -7,47 +6,35 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: fecb198dc389429be557cde50a2d46da8434a17fe37d7d41ff102e3987fd947b
+  sha256: 74a3fd7e5a7ec052f183273dc7b0acd3a863edf7520f5d3a1765c04ffdb3b0b1
 
 build:
-  number: 1
+  number: 0
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
-    # Cross-compilation stuff vendored from numpy-feedstock
-    # necessary for cross-compilation to point to the right env
-    - export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig  # [ppc64le]
-    - echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt  # [ppc64le]
-    - MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"  # [unix]
-    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}  # [unix]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
-  skip: true  # [py<39]
+    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . --global-option="build_ext" --global-option="-j1" --no-use-pep517  # [unix]
+  skip: true  # [py<38]
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython >=0.29.33,<3                    # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
-    - meson-python                           # [build_platform != target_platform]
-    - ninja                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
     - python
     - pip
-    - cython >=0.29.33,<3
+    - setuptools >=51.0.0
+    - cython >=0.29.24,<3
     - numpy
-    - versioneer
-    - meson =1.2.1
-    - meson-python =0.13.1
-    - tomli  # [py<311]
-    - ninja
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.8.1
     - pytz >=2020.1
-    - python-tzdata >=2022a
 
 test:
   imports:
@@ -59,16 +46,11 @@ test:
     #
     # Also skip `test_rolling_var_numerical_issues` on `ppc64le` as it is a known test failure.
     # xref: https://github.com/conda-forge/pandas-feedstock/issues/149
-    {% set markers = ["not clipboard", "not single_cpu", "not slow", "not network", "not db"] %}
+    {% set markers = ["not clipboard", "not single_cpu"] %}
     {% set markers = markers + ["not arm_slow"] %}   # [aarch64 or ppc64le]
     {% set extra_args = ["-m " + " and ".join(markers)] %}
-    {% set tests_to_skip = "_not_a_real_test" %}
-    {% set tests_to_skip = tests_to_skip + " or test_rolling_var_numerical_issues" %}           # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or test_std_timedelta64_skipna_false" %}           # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or test_value_counts_normalized[M8[ns]]" %}        # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or test_to_datetime_format_YYYYMMDD_with_nat" %}   # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or (TestReductions and test_median_2d)" %}         # [ppc64le]
-    {% set extra_args = extra_args + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"] %}
+    {% set extra_args = extra_args + ["--skip-slow", "--skip-network", "--skip-db", "-n=2"] %}
+    {% set extra_args = extra_args + ["-k not test_rolling_var_numerical_issues"] %}   # [ppc64le]
     - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython"]
   requires:
     - pip
@@ -78,7 +60,9 @@ test:
     - pytest-cov
     - boto3
     - hypothesis
-    - numpy
+    # Workaround recent NumPy 1.24 deprecations, which cause test failures.
+    # xref: https://github.com/conda-forge/pandas-feedstock/issues/150
+    - numpy <1.24
     - psutil
     - tomli  # [py<311]
 
