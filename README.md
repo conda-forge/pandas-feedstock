@@ -25,7 +25,7 @@ Current build status
       </a>
     </td>
   </tr>
-
+    
   <tr>
     <td>Azure</td>
     <td>
@@ -258,14 +258,14 @@ Current release info
 Installing pandas
 =================
 
-Installing `pandas` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `pandas` from the `conda-forge/label/pandas_rc` channel can be achieved by adding `conda-forge/label/pandas_rc` to your channels with:
 
 ```
-conda config --add channels conda-forge
+conda config --add channels conda-forge/label/pandas_rc
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `pandas` can be installed with `conda`:
+Once the `conda-forge/label/pandas_rc` channel has been enabled, `pandas` can be installed with `conda`:
 
 ```
 conda install pandas
@@ -280,26 +280,26 @@ mamba install pandas
 It is possible to list all of the versions of `pandas` available on your platform with `conda`:
 
 ```
-conda search pandas --channel conda-forge
+conda search pandas --channel conda-forge/label/pandas_rc
 ```
 
 or with `mamba`:
 
 ```
-mamba search pandas --channel conda-forge
+mamba search pandas --channel conda-forge/label/pandas_rc
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search pandas --channel conda-forge
+mamba repoquery search pandas --channel conda-forge/label/pandas_rc
 
 # List packages depending on `pandas`:
-mamba repoquery whoneeds pandas --channel conda-forge
+mamba repoquery whoneeds pandas --channel conda-forge/label/pandas_rc
 
 # List dependencies of `pandas`:
-mamba repoquery depends pandas --channel conda-forge
+mamba repoquery depends pandas --channel conda-forge/label/pandas_rc
 ```
 
 
