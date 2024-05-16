@@ -1,4 +1,3 @@
-{% set tests_to_skip = "_not_a_real_test" %}
 {% set version = "2.2.2" %}
 
 package:
@@ -10,13 +9,13 @@ source:
   sha256: 9e79019aba43cb4fda9e4d983f8e88ca0373adbb697ae9c6c43093218de28b54
 
 build:
-  number: 0
+  number: 1
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     # Cross-compilation stuff vendored from numpy-feedstock
     # necessary for cross-compilation to point to the right env
-    - export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig  # [ppc64le]
-    - echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt  # [ppc64le]
+    - export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig                                    # [build_platform != target_platform]
+    - echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt  # [build_platform != target_platform]
     - MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"  # [unix]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}  # [unix]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
@@ -31,6 +30,7 @@ requirements:
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
   host:
     - python
@@ -44,7 +44,6 @@ requirements:
     - ninja
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.8.1
     - pytz >=2020.1
     - python-tzdata >=2022a
@@ -57,19 +56,12 @@ test:
     # Skip test suite on PyPy as it segfaults there
     # xref: https://github.com/conda-forge/pandas-feedstock/issues/148
     #
-    # Also skip `test_rolling_var_numerical_issues` on `ppc64le` as it is a known test failure.
-    # xref: https://github.com/conda-forge/pandas-feedstock/issues/149
+    # do not run test suite in emulation because it takes ~5h; rely on upstream CI for aarch
     {% set markers = ["not clipboard", "not single_cpu", "not slow", "not network", "not db"] %}
-    {% set markers = markers + ["not arm_slow"] %}   # [aarch64 or ppc64le]
     {% set extra_args = ["-m " + " and ".join(markers)] %}
     {% set tests_to_skip = "_not_a_real_test" %}
-    {% set tests_to_skip = tests_to_skip + " or test_rolling_var_numerical_issues" %}           # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or test_std_timedelta64_skipna_false" %}           # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or test_value_counts_normalized[M8[ns]]" %}        # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or test_to_datetime_format_YYYYMMDD_with_nat" %}   # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or (TestReductions and test_median_2d)" %}         # [ppc64le]
     {% set extra_args = extra_args + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"] %}
-    - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython"]
+    - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [(build_platform == target_platform) and (python_impl == "cpython")]
   requires:
     - pip
     - pytest >=6.0
