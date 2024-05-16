@@ -56,19 +56,12 @@ test:
     # Skip test suite on PyPy as it segfaults there
     # xref: https://github.com/conda-forge/pandas-feedstock/issues/148
     #
-    # Also skip `test_rolling_var_numerical_issues` on `ppc64le` as it is a known test failure.
-    # xref: https://github.com/conda-forge/pandas-feedstock/issues/149
+    # do not run test suite in emulation because it takes ~5h; rely on upstream CI for aarch
     {% set markers = ["not clipboard", "not single_cpu", "not slow", "not network", "not db"] %}
-    {% set markers = markers + ["not arm_slow"] %}   # [aarch64 or ppc64le]
     {% set extra_args = ["-m " + " and ".join(markers)] %}
     {% set tests_to_skip = "_not_a_real_test" %}
-    {% set tests_to_skip = tests_to_skip + " or test_rolling_var_numerical_issues" %}           # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or test_std_timedelta64_skipna_false" %}           # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or test_value_counts_normalized[M8[ns]]" %}        # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or test_to_datetime_format_YYYYMMDD_with_nat" %}   # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or (TestReductions and test_median_2d)" %}         # [ppc64le]
     {% set extra_args = extra_args + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"] %}
-    - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython"]
+    - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [(build_platform == target_platform) and (python_impl == "cpython")]
   requires:
     - pip
     - pytest >=6.0
