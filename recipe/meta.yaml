@@ -44,7 +44,6 @@ requirements:
     - ninja
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - python-dateutil >=2.8.1
     - pytz >=2020.1
     - python-tzdata >=2022a
