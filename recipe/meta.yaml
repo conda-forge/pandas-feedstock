@@ -17,8 +17,8 @@ build:
     - export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig                                    # [build_platform != target_platform]
     - echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt  # [build_platform != target_platform]
     - MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"  # [unix]
-    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}  # [unix]
-    - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
+    - {{ PYTHON }} -m pip install -vv --no-deps --no-build-isolation --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}  # [unix]
+    - {{ PYTHON }} -m pip install -vv --no-deps --no-build-isolation --ignore-installed .  # [not unix]
   skip: true  # [py<39]
 
 requirements:
