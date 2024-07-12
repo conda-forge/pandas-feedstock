@@ -7,8 +7,6 @@ package:
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
   sha256: 9e79019aba43cb4fda9e4d983f8e88ca0373adbb697ae9c6c43093218de28b54
-  patches:
-    - patches/0001-unpin-build-deps.patch
 
 build:
   number: 1
@@ -40,8 +38,8 @@ requirements:
     - cython >=3.0.5
     - numpy
     - versioneer
-    - meson =1.2.1
-    - meson-python =0.13.1
+    - meson
+    - meson-python
     - tomli  # [py<311]
     - ninja
   run:
