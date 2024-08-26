@@ -9,7 +9,7 @@ source:
   sha256: 9e79019aba43cb4fda9e4d983f8e88ca0373adbb697ae9c6c43093218de28b54
 
 build:
-  number: 1
+  number: 2
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     # Cross-compilation stuff vendored from numpy-feedstock
@@ -44,6 +44,9 @@ requirements:
     - ninja
   run:
     - python
+    # Add only the lowest-supported numpy version from pyproject.toml here,
+    # no need to worry about old versions that don't support a given Python version.
+    - numpy >=1.22.4
     - python-dateutil >=2.8.1
     - pytz >=2020.1
     - python-tzdata >=2022a
