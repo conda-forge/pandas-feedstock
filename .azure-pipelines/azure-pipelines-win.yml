@@ -8,26 +8,26 @@ jobs:
     vmImage: windows-2022
   strategy:
     matrix:
-      win_64_numpy1.22python3.9.____73_pypypython_implpypy:
-        CONFIG: win_64_numpy1.22python3.9.____73_pypypython_implpypy
+      win_64_numpy2.0python3.10.____cpython:
+        CONFIG: win_64_numpy2.0python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: win_64_numpy1.22python3.9.____73_py_h9df6b1925a
-      win_64_numpy2.0python3.10.____cpythonpython_implcpython:
-        CONFIG: win_64_numpy2.0python3.10.____cpythonpython_implcpython
+        SHORT_CONFIG: win_64_numpy2.0python3.10.____cpython
+      win_64_numpy2.0python3.11.____cpython:
+        CONFIG: win_64_numpy2.0python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: win_64_numpy2.0python3.10.____cpyth_h60a52d87c9
-      win_64_numpy2.0python3.11.____cpythonpython_implcpython:
-        CONFIG: win_64_numpy2.0python3.11.____cpythonpython_implcpython
+        SHORT_CONFIG: win_64_numpy2.0python3.11.____cpython
+      win_64_numpy2.0python3.12.____cpython:
+        CONFIG: win_64_numpy2.0python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: win_64_numpy2.0python3.11.____cpyth_h079c78a6ac
-      win_64_numpy2.0python3.12.____cpythonpython_implcpython:
-        CONFIG: win_64_numpy2.0python3.12.____cpythonpython_implcpython
+        SHORT_CONFIG: win_64_numpy2.0python3.12.____cpython
+      win_64_numpy2.0python3.9.____cpython:
+        CONFIG: win_64_numpy2.0python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: win_64_numpy2.0python3.12.____cpyth_h32090caff9
-      win_64_numpy2.0python3.9.____cpythonpython_implcpython:
-        CONFIG: win_64_numpy2.0python3.9.____cpythonpython_implcpython
+        SHORT_CONFIG: win_64_numpy2.0python3.9.____cpython
+      win_64_numpy2python3.13.____cp313:
+        CONFIG: win_64_numpy2python3.13.____cp313
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: win_64_numpy2.0python3.9.____cpytho_h3662cb24b2
+        SHORT_CONFIG: win_64_numpy2python3.13.____cp313
   timeoutInMinutes: 360
   variables:
     CONDA_BLD_PATH: D:\\bld\\
@@ -41,7 +41,7 @@ jobs:
         scriptSource: inline
         script: |
           import urllib.request
-          url = 'https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Windows-x86_64.exe'
+          url = 'https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe'
           path = r"$(Build.ArtifactStagingDirectory)/Miniforge.exe"
           urllib.request.urlretrieve(url, path)
 

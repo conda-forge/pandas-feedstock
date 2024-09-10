@@ -8,26 +8,26 @@ jobs:
     vmImage: macOS-12
   strategy:
     matrix:
-      osx_64_numpy1.22python3.9.____73_pypypython_implpypy:
-        CONFIG: osx_64_numpy1.22python3.9.____73_pypypython_implpypy
+      osx_64_numpy2.0python3.10.____cpython:
+        CONFIG: osx_64_numpy2.0python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_numpy1.22python3.9.____73_py_hf7d254df81
-      osx_64_numpy2.0python3.10.____cpythonpython_implcpython:
-        CONFIG: osx_64_numpy2.0python3.10.____cpythonpython_implcpython
+        SHORT_CONFIG: osx_64_numpy2.0python3.10.____cpython
+      osx_64_numpy2.0python3.11.____cpython:
+        CONFIG: osx_64_numpy2.0python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_numpy2.0python3.10.____cpyth_h6666b77a01
-      osx_64_numpy2.0python3.11.____cpythonpython_implcpython:
-        CONFIG: osx_64_numpy2.0python3.11.____cpythonpython_implcpython
+        SHORT_CONFIG: osx_64_numpy2.0python3.11.____cpython
+      osx_64_numpy2.0python3.12.____cpython:
+        CONFIG: osx_64_numpy2.0python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_numpy2.0python3.11.____cpyth_h708852cb2b
-      osx_64_numpy2.0python3.12.____cpythonpython_implcpython:
-        CONFIG: osx_64_numpy2.0python3.12.____cpythonpython_implcpython
+        SHORT_CONFIG: osx_64_numpy2.0python3.12.____cpython
+      osx_64_numpy2.0python3.9.____cpython:
+        CONFIG: osx_64_numpy2.0python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_numpy2.0python3.12.____cpyth_h8bd845446a
-      osx_64_numpy2.0python3.9.____cpythonpython_implcpython:
-        CONFIG: osx_64_numpy2.0python3.9.____cpythonpython_implcpython
+        SHORT_CONFIG: osx_64_numpy2.0python3.9.____cpython
+      osx_64_numpy2python3.13.____cp313:
+        CONFIG: osx_64_numpy2python3.13.____cp313
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_numpy2.0python3.9.____cpytho_h5a7ffc3cce
+        SHORT_CONFIG: osx_64_numpy2python3.13.____cp313
       osx_arm64_numpy2.0python3.10.____cpython:
         CONFIG: osx_arm64_numpy2.0python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -44,6 +44,10 @@ jobs:
         CONFIG: osx_arm64_numpy2.0python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         SHORT_CONFIG: osx_arm64_numpy2.0python3.9.____cpython
+      osx_arm64_numpy2python3.13.____cp313:
+        CONFIG: osx_arm64_numpy2python3.13.____cp313
+        UPLOAD_PACKAGES: 'True'
+        SHORT_CONFIG: osx_arm64_numpy2python3.13.____cp313
   timeoutInMinutes: 360
   variables: {}
 
