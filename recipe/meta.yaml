@@ -45,6 +45,9 @@ requirements:
     - ninja
   run:
     - python
+    # Add only the lowest-supported numpy version from pyproject.toml here,
+    # no need to worry about old versions that don't support a given Python version.
+    - numpy >=1.22.4
     - python-dateutil >=2.8.1
     - pytz >=2020.1
     - python-tzdata >=2022a
