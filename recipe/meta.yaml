@@ -1,4 +1,5 @@
-{% set version = "2.2.2" %}
+{% set tests_to_skip = "_not_a_real_test" %}
+{% set version = "2.2.3" %}
 
 package:
   name: pandas
@@ -6,10 +7,10 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 9e79019aba43cb4fda9e4d983f8e88ca0373adbb697ae9c6c43093218de28b54
+  sha256: 4f18ba62b61d7e192368b84517265a99b4d7ee8912f8708660fb4a366cc82667
 
 build:
-  number: 1
+  number: 0
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     # Cross-compilation stuff vendored from numpy-feedstock
@@ -44,8 +45,11 @@ requirements:
     - ninja
   run:
     - python
+    # Add only the lowest-supported numpy version from pyproject.toml here,
+    # no need to worry about old versions that don't support a given Python version.
+    - numpy >=1.22.4
     - python-dateutil >=2.8.1
-    - pytz >=2020.1
+    - pytz >=2020.1, <2024.2
     - python-tzdata >=2022a
 
 test:
