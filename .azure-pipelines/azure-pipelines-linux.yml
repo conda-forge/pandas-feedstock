@@ -33,6 +33,11 @@ jobs:
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_64_numpy2python3.13.____cp313
+      linux_64_numpy2python3.13.____cp313t:
+        CONFIG: linux_64_numpy2python3.13.____cp313t
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+        SHORT_CONFIG: linux_64_numpy2python3.13.____cp313t
       linux_aarch64_numpy2.0python3.10.____cpython:
         CONFIG: linux_aarch64_numpy2.0python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -58,6 +63,11 @@ jobs:
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_aarch64_numpy2python3.13.____cp313
+      linux_aarch64_numpy2python3.13.____cp313t:
+        CONFIG: linux_aarch64_numpy2python3.13.____cp313t
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+        SHORT_CONFIG: linux_aarch64_numpy2python3.13.____cp313t
       linux_ppc64le_numpy2.0python3.10.____cpython:
         CONFIG: linux_ppc64le_numpy2.0python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -83,6 +93,11 @@ jobs:
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_ppc64le_numpy2python3.13.____cp313
+      linux_ppc64le_numpy2python3.13.____cp313t:
+        CONFIG: linux_ppc64le_numpy2python3.13.____cp313t
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+        SHORT_CONFIG: linux_ppc64le_numpy2python3.13.____cp313t
   timeoutInMinutes: 360
   variables: {}
 
