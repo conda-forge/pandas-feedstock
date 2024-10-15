@@ -17,6 +17,7 @@ build:
     # necessary for cross-compilation to point to the right env
     - export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig                                    # [build_platform != target_platform]
     - sed -i.bak "s@\[binaries\]@[binaries]\npython = '${PREFIX}/bin/python'@g" ${CONDA_PREFIX}/meson_cross_file.txt  # [build_platform != target_platform]
+    - sed -i.bak "s@import json@import json, setuptools@g" {{ SP_DIR }}/mesonbuild/scripts/python_info.py  # [is_freethreading]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS// / -Csetup-args=}  # [unix]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
   skip: true  # [py<39]
@@ -32,6 +33,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
+    - m2-sed  # [is_freethreading]
   host:
     - python
     - pip
@@ -40,6 +42,7 @@ requirements:
     - versioneer
     - meson =1.2.1
     - meson-python =0.13.1
+    - setuptools  # [is_freethreading]
     - tomli  # [py<311]
     - ninja
   run:
