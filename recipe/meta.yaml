@@ -33,7 +33,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
-    - m2-sed  # [is_freethreading]
+    - m2-sed  # [is_freethreading and win]
   host:
     - python
     - pip
