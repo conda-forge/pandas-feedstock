@@ -8,54 +8,54 @@ jobs:
     vmImage: macOS-13
   strategy:
     matrix:
-      osx_64_numpy2.0python3.10.____cpython:
-        CONFIG: osx_64_numpy2.0python3.10.____cpython
+      osx_64_is_freethreadingfalsenumpy2.0python3.10.____cpython:
+        CONFIG: osx_64_is_freethreadingfalsenumpy2.0python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_numpy2.0python3.10.____cpython
-      osx_64_numpy2.0python3.11.____cpython:
-        CONFIG: osx_64_numpy2.0python3.11.____cpython
+        SHORT_CONFIG: osx_64_is_freethreadingfalsenumpy2._he7fc045f52
+      osx_64_is_freethreadingfalsenumpy2.0python3.11.____cpython:
+        CONFIG: osx_64_is_freethreadingfalsenumpy2.0python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_numpy2.0python3.11.____cpython
-      osx_64_numpy2.0python3.12.____cpython:
-        CONFIG: osx_64_numpy2.0python3.12.____cpython
+        SHORT_CONFIG: osx_64_is_freethreadingfalsenumpy2._h5d91f86dd2
+      osx_64_is_freethreadingfalsenumpy2.0python3.12.____cpython:
+        CONFIG: osx_64_is_freethreadingfalsenumpy2.0python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_numpy2.0python3.12.____cpython
-      osx_64_numpy2.0python3.9.____cpython:
-        CONFIG: osx_64_numpy2.0python3.9.____cpython
+        SHORT_CONFIG: osx_64_is_freethreadingfalsenumpy2._h3a278d4399
+      osx_64_is_freethreadingfalsenumpy2.0python3.9.____cpython:
+        CONFIG: osx_64_is_freethreadingfalsenumpy2.0python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_numpy2.0python3.9.____cpython
-      osx_64_numpy2python3.13.____cp313:
-        CONFIG: osx_64_numpy2python3.13.____cp313
+        SHORT_CONFIG: osx_64_is_freethreadingfalsenumpy2._h226f9bd46a
+      osx_64_is_freethreadingfalsenumpy2python3.13.____cp313:
+        CONFIG: osx_64_is_freethreadingfalsenumpy2python3.13.____cp313
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_numpy2python3.13.____cp313
-      osx_64_numpy2python3.13.____cp313t:
-        CONFIG: osx_64_numpy2python3.13.____cp313t
+        SHORT_CONFIG: osx_64_is_freethreadingfalsenumpy2p_had4e0fae75
+      osx_64_is_freethreadingtruenumpy2python3.13.____cp313t:
+        CONFIG: osx_64_is_freethreadingtruenumpy2python3.13.____cp313t
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_numpy2python3.13.____cp313t
-      osx_arm64_numpy2.0python3.10.____cpython:
-        CONFIG: osx_arm64_numpy2.0python3.10.____cpython
+        SHORT_CONFIG: osx_64_is_freethreadingtruenumpy2py_h72818c198c
+      osx_arm64_is_freethreadingfalsenumpy2.0python3.10.____cpython:
+        CONFIG: osx_arm64_is_freethreadingfalsenumpy2.0python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_arm64_numpy2.0python3.10.____cpython
-      osx_arm64_numpy2.0python3.11.____cpython:
-        CONFIG: osx_arm64_numpy2.0python3.11.____cpython
+        SHORT_CONFIG: osx_arm64_is_freethreadingfalsenump_h8a6a1fcc36
+      osx_arm64_is_freethreadingfalsenumpy2.0python3.11.____cpython:
+        CONFIG: osx_arm64_is_freethreadingfalsenumpy2.0python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_arm64_numpy2.0python3.11.____cpython
-      osx_arm64_numpy2.0python3.12.____cpython:
-        CONFIG: osx_arm64_numpy2.0python3.12.____cpython
+        SHORT_CONFIG: osx_arm64_is_freethreadingfalsenump_h1e279d1ac8
+      osx_arm64_is_freethreadingfalsenumpy2.0python3.12.____cpython:
+        CONFIG: osx_arm64_is_freethreadingfalsenumpy2.0python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_arm64_numpy2.0python3.12.____cpython
-      osx_arm64_numpy2.0python3.9.____cpython:
-        CONFIG: osx_arm64_numpy2.0python3.9.____cpython
+        SHORT_CONFIG: osx_arm64_is_freethreadingfalsenump_ha46e887c3c
+      osx_arm64_is_freethreadingfalsenumpy2.0python3.9.____cpython:
+        CONFIG: osx_arm64_is_freethreadingfalsenumpy2.0python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_arm64_numpy2.0python3.9.____cpython
-      osx_arm64_numpy2python3.13.____cp313:
-        CONFIG: osx_arm64_numpy2python3.13.____cp313
+        SHORT_CONFIG: osx_arm64_is_freethreadingfalsenump_hbbee65e34f
+      osx_arm64_is_freethreadingfalsenumpy2python3.13.____cp313:
+        CONFIG: osx_arm64_is_freethreadingfalsenumpy2python3.13.____cp313
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_arm64_numpy2python3.13.____cp313
-      osx_arm64_numpy2python3.13.____cp313t:
-        CONFIG: osx_arm64_numpy2python3.13.____cp313t
+        SHORT_CONFIG: osx_arm64_is_freethreadingfalsenump_h9cbb06834e
+      osx_arm64_is_freethreadingtruenumpy2python3.13.____cp313t:
+        CONFIG: osx_arm64_is_freethreadingtruenumpy2python3.13.____cp313t
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_arm64_numpy2python3.13.____cp313t
+        SHORT_CONFIG: osx_arm64_is_freethreadingtruenumpy_hd2a8026ef4
   timeoutInMinutes: 360
   variables: {}
 
