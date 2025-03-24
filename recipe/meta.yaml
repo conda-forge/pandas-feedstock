@@ -48,9 +48,9 @@ requirements:
     # Add only the lowest-supported numpy version from pyproject.toml here,
     # no need to worry about old versions that don't support a given Python version.
     - numpy >=1.22.4
-    - python-dateutil >=2.8.1
+    - python-dateutil >=2.8.2
     - pytz >=2020.1
-    - python-tzdata >=2022a
+    - python-tzdata >=2022.7
   run_constrained:
     - beautifulsoup4 >=4.11.2
     - blosc >=1.21.3
@@ -62,7 +62,7 @@ requirements:
     - matplotlib >=3.6.3
     - numba >=0.56.4
     - numexpr >=2.8.4
-    - pyqt5 >=5.15.8
+    - pyqt5 >=5.15.9
     - qtpy >=2.3.0
     - openpyxl >=3.1.0
     - psycopg2 >=2.9.6
