@@ -11,6 +11,8 @@ source:
   patches:
     # backport https://github.com/pandas-dev/pandas/pull/60416
     - patches/0001-TST-Avoid-hashing-np.timedelta64-without-unit-60416.patch
+    # backport https://github.com/pandas-dev/pandas/pull/60555
+    - patches/0002-Backport-PR-60553-TST-filter-possible-RuntimeWarning.patch
 
 build:
   number: 3
