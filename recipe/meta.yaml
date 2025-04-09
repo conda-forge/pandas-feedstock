@@ -65,13 +65,14 @@ requirements:
     - matplotlib >=3.6.3
     - numba >=0.56.4
     - numexpr >=2.8.4
-    - pyqt5 >=5.15.9
-    - qtpy >=2.3.0
     - openpyxl >=3.1.0
     - psycopg2 >=2.9.6
+    - pyarrow >=10.0.1
+    - pyqt5 >=5.15.9
     - pyreadstat >=1.2.0
     - pytables >=3.8.0
     - pyxlsb >=1.0.10
+    - qtpy >=2.3.0
     - s3fs >=2022.11.0
     - scipy >=1.10.0
     - sqlalchemy >=2.0.0
