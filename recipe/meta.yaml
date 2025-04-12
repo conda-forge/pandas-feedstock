@@ -12,6 +12,8 @@ source:
     - patches/0001-TST-Avoid-hashing-np.timedelta64-without-unit-60416.patch
     # backport https://github.com/pandas-dev/pandas/pull/60555
     - patches/0002-Backport-PR-60553-TST-filter-possible-RuntimeWarning.patch
+    # backport https://github.com/pandas-dev/pandas/pull/60089
+    - patches/0003-BLD-relax-meson-meson-python-requirements-60089.patch
 
 build:
   number: 4
@@ -44,8 +46,8 @@ requirements:
     - cython >=3.0.5
     - numpy
     - versioneer
-    - meson =1.2.1
-    - meson-python =0.13.1
+    - meson <2
+    - meson-python
     - setuptools  # [is_freethreading]
     - tomli  # [py<311]
     - ninja

@@ -1,0 +1,31 @@
+From 5fad129a48767d41b5404cffeb99b997c1efa092 Mon Sep 17 00:00:00 2001
+From: Isuru Fernando <isuruf@gmail.com>
+Date: Tue, 29 Oct 2024 16:01:05 -0500
+Subject: [PATCH 3/3] BLD: relax meson/meson-python requirements (#60089)
+
+* relax meson/meson-python requirements
+
+This makes bugfixes from later meson/meson-python fixes available
+to build pandas. For eg: python 3.13t support in meson, needs an
+up-to-date version of meson.
+
+* Drop upper bound for meson-python
+---
+ pyproject.toml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 238abd85dc..834a13f4b1 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -2,8 +2,8 @@
+ # Minimum requirements for the build system to execute.
+ # See https://github.com/scipy/scipy/pull/12940 for the AIX issue.
+ requires = [
+-    "meson-python==0.13.1",
+-    "meson==1.2.1",
++    "meson-python>=0.13.1",
++    "meson>=1.2.1,<2",
+     "wheel",
+     "Cython~=3.0.5",  # Note: sync with setup.py, environment.yml and asv.conf.json
+     # Force numpy higher than 2.0, so that built wheels are compatible
