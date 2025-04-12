@@ -8,9 +8,14 @@ package:
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
   sha256: 4f18ba62b61d7e192368b84517265a99b4d7ee8912f8708660fb4a366cc82667
+  patches:
+    # backport https://github.com/pandas-dev/pandas/pull/60416
+    - patches/0001-TST-Avoid-hashing-np.timedelta64-without-unit-60416.patch
+    # backport https://github.com/pandas-dev/pandas/pull/60555
+    - patches/0002-Backport-PR-60553-TST-filter-possible-RuntimeWarning.patch
 
 build:
-  number: 2
+  number: 3
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     # Cross-compilation stuff vendored from numpy-feedstock
@@ -48,9 +53,9 @@ requirements:
     # Add only the lowest-supported numpy version from pyproject.toml here,
     # no need to worry about old versions that don't support a given Python version.
     - numpy >=1.22.4
-    - python-dateutil >=2.8.1
-    - pytz >=2020.1, <2024.2
-    - python-tzdata >=2022a
+    - python-dateutil >=2.8.2
+    - pytz >=2020.1
+    - python-tzdata >=2022.7
   run_constrained:
     - beautifulsoup4 >=4.11.2
     - blosc >=1.21.3
@@ -58,23 +63,29 @@ requirements:
     - fastparquet >=2022.12.0
     - fsspec >=2022.11.0
     - gcsfs >=2022.11.0
+    - html5lib >=1.1
     - lxml >=4.9.2
     - matplotlib >=3.6.3
     - numba >=0.56.4
     - numexpr >=2.8.4
-    - pyqt5 >=5.15.8
-    - qtpy >=2.3.0
+    - odfpy >=1.4.1
     - openpyxl >=3.1.0
+    - pandas-gbq >=0.19.0
     - psycopg2 >=2.9.6
+    - pyarrow >=10.0.1
+    - pyqt5 >=5.15.9
     - pyreadstat >=1.2.0
     - pytables >=3.8.0
+    - python-calamine >=0.1.7
     - pyxlsb >=1.0.10
+    - qtpy >=2.3.0
     - s3fs >=2022.11.0
     - scipy >=1.10.0
     - sqlalchemy >=2.0.0
     - tabulate >=0.9.0
     - tzdata >=2022.7
     - xarray >=2022.12.0
+    - xlrd >=2.0.1
     - xlsxwriter >=3.0.5
     - zstandard >=0.19.0
 
@@ -94,9 +105,10 @@ test:
     - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [(build_platform == target_platform) and (python_impl == "cpython")]
   requires:
     - pip
-    - pytest >=6.0
-    - pytest-xdist >=1.31
+    - pytest >=7.3.2
+    - pytest-xdist >=2.2.0
     - pytest-cov
+    - pytz >=2020.1,<2024.2
     - boto3
     - hypothesis
     - numpy

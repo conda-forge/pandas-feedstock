@@ -1,0 +1,22 @@
+From 1eaefa3481a54ddbe0e2e8a02bd1410eec22d3b1 Mon Sep 17 00:00:00 2001
+From: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>
+Date: Mon, 25 Nov 2024 11:35:37 -0800
+Subject: [PATCH 1/2] TST: Avoid hashing np.timedelta64 without unit (#60416)
+
+---
+ pandas/tests/test_algos.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pandas/tests/test_algos.py b/pandas/tests/test_algos.py
+index 718d1b3ee2..557c3bd3cc 100644
+--- a/pandas/tests/test_algos.py
++++ b/pandas/tests/test_algos.py
+@@ -1280,7 +1280,7 @@ class TestValueCounts:
+             result_dt = algos.value_counts(dt)
+         tm.assert_series_equal(result_dt, exp_dt)
+ 
+-        exp_td = Series({np.timedelta64(10000): 1}, name="count")
++        exp_td = Series([1], index=[np.timedelta64(10000)], name="count")
+         with tm.assert_produces_warning(FutureWarning, match=msg):
+             result_td = algos.value_counts(td)
+         tm.assert_series_equal(result_td, exp_td)
