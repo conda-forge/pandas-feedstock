@@ -1,7 +1,7 @@
 From 6bf9082a3b348edc7bdb7d0df340a484aa5bfca6 Mon Sep 17 00:00:00 2001
 From: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>
 Date: Fri, 13 Dec 2024 11:56:15 -0800
-Subject: [PATCH 2/2] Backport PR #60553: TST: filter possible RuntimeWarning
+Subject: [PATCH 2/3] Backport PR #60553: TST: filter possible RuntimeWarning
  in tests (#60555)
 
 * Backport PR #60553: TST: filter possible RuntimeWarning in tests
