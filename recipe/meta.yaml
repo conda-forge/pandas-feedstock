@@ -8,11 +8,6 @@ package:
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
   sha256: 34600ab34ebf1131a7613a260a61dbe8b62c188ec0ea4c296da7c9a06b004133
-  patches:
-    # backport https://github.com/pandas-dev/pandas/pull/60416
-    - patches/0001-TST-Avoid-hashing-np.timedelta64-without-unit-60416.patch
-    # backport https://github.com/pandas-dev/pandas/pull/60555
-    - patches/0002-Backport-PR-60553-TST-filter-possible-RuntimeWarning.patch
 
 build:
   number: 0
