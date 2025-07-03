@@ -1,9 +1,6 @@
 schema_version: 1
 
 context:
-  # Skip test suite on PyPy as it segfaults there
-  # xref: https://github.com/conda-forge/pandas-feedstock/issues/148
-  extra_args: '[\"-m not clipboard and not single_cpu and not slow and not network and not db\", \"-k\", \"not (_not_a_real_test)\", \"--no-strict-data-files\"]'
   version: 2.3.0
 
 package:
@@ -101,26 +98,35 @@ tests:
   - python:
       imports:
         - pandas
-  - requirements:
-      run:
-        - pip
-        - pytest >=7.3.2
-        - pytest-xdist >=2.2.0
-        - pytest-cov
-        - pytz >=2020.1,<2024.2
-        - boto3
-        - hypothesis
-        - numpy
-        - psutil
-        - if: match(python, "<3.11")
-          then: tomli
-    script:
-      - pip check
-      # do not run test suite in emulation because it takes ~5h; rely on upstream CI for aarch
-      - if: (build_platform == target_platform) and (python_impl == "cpython")
-        then: 
-          - echo ${{ extra_args }}
-          - python -c "import pandas; pandas.test(extra_args=${{ extra_args }})"
+      pip_check: true
+  # Skip test suite on PyPy as it segfaults there
+  # xref: https://github.com/conda-forge/pandas-feedstock/issues/148
+  #
+  # do not run test suite in emulation because it takes ~5h; rely on upstream CI for aarch
+  - if: (build_platform == target_platform) and (python_impl == "cpython")
+    then:
+      - requirements:
+        run:
+          - pip
+          - pytest >=7.3.2
+          - pytest-xdist >=2.2.0
+          - pytest-cov
+          - pytz >=2020.1,<2024.2
+          - boto3
+          - hypothesis
+          - numpy
+          - psutil
+          - if: match(python, "<3.11")
+            then: tomli
+        script:
+          interpreter: python
+          content: |
+            import pandas
+            markers = ["not clipboard", "not single_cpu", "not slow", "not network", "not db"]
+            extra_args = ["-m " + " and ".join(markers)]
+            tests_to_skip = "_not_a_real_test"
+            extra_args = extra_args + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"]
+            pandas.test(extra_args=extra_args)
 
 about:
   license: BSD-3-Clause
