@@ -106,18 +106,18 @@ tests:
   - if: (build_platform == target_platform) and (python_impl == "cpython")
     then:
       - requirements:
-        run:
-          - pip
-          - pytest >=7.3.2
-          - pytest-xdist >=2.2.0
-          - pytest-cov
-          - pytz >=2020.1,<2024.2
-          - boto3
-          - hypothesis
-          - numpy
-          - psutil
-          - if: match(python, "<3.11")
-            then: tomli
+          run:
+            - pip
+            - pytest >=7.3.2
+            - pytest-xdist >=2.2.0
+            - pytest-cov
+            - pytz >=2020.1,<2024.2
+            - boto3
+            - hypothesis
+            - numpy
+            - psutil
+            - if: match(python, "<3.11")
+              then: tomli
         script:
           interpreter: python
           content: |
