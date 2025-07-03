@@ -1,14 +1,7 @@
 schema_version: 1
 
 context:
-  tests_to_skip: _not_a_real_test
-  markers: 
-    - "not clipboard"
-    - "not single_cpu"
-    - "not slow"
-    - "not network"
-    - "not db"
-  extra_args: ${{ ["-m " + markers|join(" and ")] + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"] }}
+  extra_args: '["-m not clipboard and not single_cpu and not slow and not network and not db", "-k", "not (_not_a_real_test)", "--no-strict-data-files"]'
   version: 2.3.0
 
 package:
