@@ -2,8 +2,9 @@ schema_version: 1
 
 context:
   tests_to_skip: _not_a_real_test
+  markers: ["not clipboard", "not single_cpu", "not slow", "not network", "not db"]
+  extra_args: ["-m " + markers|join(" and ")] + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"]
   version: 2.3.0
-  extra_args: extra_args + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"]
 
 package:
   name: pandas
@@ -117,7 +118,7 @@ tests:
       - pip check
       - if: (build_platform == target_platform) and (python_impl == "cpython")
         then: 
-          - echo python -c "import pandas; pandas.test(extra_args=${{ extra_args }})"
+          - echo ${{ extra_args }}
           - python -c "import pandas; pandas.test(extra_args=${{ extra_args }})"
 
 about:
