@@ -116,7 +116,9 @@ tests:
     script:
       - pip check
       - if: (build_platform == target_platform) and (python_impl == "cpython")
-        then: python -c "import pandas; pandas.test(extra_args=${{ extra_args }})"
+        then: 
+          - echo python -c "import pandas; pandas.test(extra_args=${{ extra_args }})"
+          - python -c "import pandas; pandas.test(extra_args=${{ extra_args }})"
 
 about:
   license: BSD-3-Clause
