@@ -22,30 +22,25 @@ build:
     # Cross-compilation stuff vendored from numpy-feedstock
     # necessary for cross-compilation to point to the right env
     - if: build_platform != target_platform
-      then: export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
-    - if: build_platform != target_platform
-      then: echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+      then: 
+        - export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
+        - echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt
     - if: unix
-      then: MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"
-    - if: unix
-      then: ${{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}
-    - if: not unix
-      then: ${{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .
+      then:
+       - MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"
+       - ${{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}
+      else: ${{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .
 
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: cython >=3.0.5
-    - if: build_platform != target_platform
-      then: numpy
-    - if: build_platform != target_platform
-      then: meson-python
-    - if: build_platform != target_platform
-      then: ninja
+      then: 
+        - python
+        - cross-python_${{ target_platform }}
+        - cython >=3.0.5
+        - numpy
+        - meson-python
+        - ninja
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler('cxx') }}
