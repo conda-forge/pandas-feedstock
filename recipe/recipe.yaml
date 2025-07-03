@@ -1,7 +1,9 @@
 schema_version: 1
 
 context:
-  extra_args: '["-m not clipboard and not single_cpu and not slow and not network and not db", "-k", "not (_not_a_real_test)", "--no-strict-data-files"]'
+  # Skip test suite on PyPy as it segfaults there
+  # xref: https://github.com/conda-forge/pandas-feedstock/issues/148
+  extra_args: '[\"-m not clipboard and not single_cpu and not slow and not network and not db\", \"-k\", \"not (_not_a_real_test)\", \"--no-strict-data-files\"]'
   version: 2.3.0
 
 package:
@@ -114,6 +116,7 @@ tests:
           then: tomli
     script:
       - pip check
+      # do not run test suite in emulation because it takes ~5h; rely on upstream CI for aarch
       - if: (build_platform == target_platform) and (python_impl == "cpython")
         then: 
           - echo ${{ extra_args }}
