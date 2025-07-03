@@ -1,0 +1,148 @@
+schema_version: 1
+
+context:
+  tests_to_skip: _not_a_real_test
+  version: 2.3.0
+  extra_args: extra_args + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"]
+
+package:
+  name: pandas
+  version: ${{ version }}
+
+source:
+  url: https://github.com/pandas-dev/pandas/releases/download/v${{ version }}/pandas-${{ version }}.tar.gz
+  sha256: 34600ab34ebf1131a7613a260a61dbe8b62c188ec0ea4c296da7c9a06b004133
+
+build:
+  number: 1
+  skip: match(python, "<3.9")
+  script:
+    - if: ppc64le
+      then: export PYTHONUNBUFFERED=1
+    # Cross-compilation stuff vendored from numpy-feedstock
+    # necessary for cross-compilation to point to the right env
+    - if: build_platform != target_platform
+      then: export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
+    - if: build_platform != target_platform
+      then: echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+    - if: unix
+      then: MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"
+    - if: unix
+      then: ${{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}
+    - if: not unix
+      then: ${{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then: cython >=3.0.5
+    - if: build_platform != target_platform
+      then: numpy
+    - if: build_platform != target_platform
+      then: meson-python
+    - if: build_platform != target_platform
+      then: ninja
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - ${{ compiler('cxx') }}
+  host:
+    - python
+    - pip
+    - cython >=3.0.5
+    - numpy
+    - versioneer
+    - meson =1.2.1
+    - meson-python =0.13.1
+    - if: match(python, "<3.11")
+      then: tomli
+    - ninja
+  run:
+    - python
+    # Add only the lowest-supported numpy version from pyproject.toml here,
+    # no need to worry about old versions that don't support a given Python version.
+    - numpy >=1.22.4
+    - python-dateutil >=2.8.2
+    - pytz >=2020.1
+    - python-tzdata >=2022.7
+  run_constraints:
+    - beautifulsoup4 >=4.11.2
+    - blosc >=1.21.3
+    - bottleneck >=1.3.6
+    - fastparquet >=2022.12.0
+    - fsspec >=2022.11.0
+    - gcsfs >=2022.11.0
+    - html5lib >=1.1
+    - lxml >=4.9.2
+    - matplotlib >=3.6.3
+    - numba >=0.56.4
+    - numexpr >=2.8.4
+    - odfpy >=1.4.1
+    - openpyxl >=3.1.0
+    - pandas-gbq >=0.19.0
+    - psycopg2 >=2.9.6
+    - pyarrow >=10.0.1
+    - pyqt5 >=5.15.9
+    - pyreadstat >=1.2.0
+    - pytables >=3.8.0
+    - python-calamine >=0.1.7
+    - pyxlsb >=1.0.10
+    - qtpy >=2.3.0
+    - s3fs >=2022.11.0
+    - scipy >=1.10.0
+    - sqlalchemy >=2.0.0
+    - tabulate >=0.9.0
+    - tzdata >=2022.7
+    - xarray >=2022.12.0
+    - xlrd >=2.0.1
+    - xlsxwriter >=3.0.5
+    - zstandard >=0.19.0
+
+tests:
+  - python:
+      imports:
+        - pandas
+  - requirements:
+      run:
+        - pip
+        - pytest >=7.3.2
+        - pytest-xdist >=2.2.0
+        - pytest-cov
+        - pytz >=2020.1,<2024.2
+        - boto3
+        - hypothesis
+        - numpy
+        - psutil
+        - if: match(python, "<3.11")
+          then: tomli
+    script:
+      - pip check
+      - if: (build_platform == target_platform) and (python_impl == "cpython")
+        then: python -c "import pandas; pandas.test(extra_args=${{ extra_args }})"
+
+about:
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: >-
+    Powerful data structures for data analysis, time series, and statistics
+  homepage: http://pandas.pydata.org
+  repository: https://github.com/pandas-dev/pandas
+  documentation: https://pandas.pydata.org/docs/
+
+extra:
+  recipe-maintainers:
+    - jreback
+    - jorisvandenbossche
+    - msarahan
+    - ocefpaf
+    - TomAugspurger
+    - WillAyd
+    - simonjayhawkins
+    - mroeschke
+    - datapythonista
+    - phofl
+    - lithomas1
+    - marcogorelli
