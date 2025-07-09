@@ -77,7 +77,13 @@ jobs:
 
     - task: PublishPipelineArtifact@1
       displayName: Store conda build environment artifacts
-      condition: not(eq(variables.ENV_ARTIFACT_PATH, ''))
+      # ENV_ARTIFACT_PATH might be unset (but non-empty) if the main build passed,
+      # because then ENV_ARTIFACT_PREFIX is not defined and the respective branch in
+      # .scripts/create_conda_build_artifacts.bat isn't run; avoid known-bad value.
+      condition: not(or(
+          eq(variables.ENV_ARTIFACT_PATH, ''),
+          eq(variables.ENV_ARTIFACT_PATH, '!ENV_ARTIFACT_PATH!')
+        ))
       inputs:
         targetPath: $(ENV_ARTIFACT_PATH)
         artifactName: $(ENV_ARTIFACT_NAME)
