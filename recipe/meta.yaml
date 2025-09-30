@@ -1,5 +1,5 @@
 {% set tests_to_skip = "_not_a_real_test" %}
-{% set version = "2.3.2" %}
+{% set version = "2.3.3" %}
 
 package:
   name: pandas
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: ab7b58f8f82706890924ccdfb5f48002b83d2b5a3845976a9fb705d36c34dcdb
+  sha256: e05e1af93b977f7eafa636d043f9f94c7ee3ac81af99c13508215942e64c993b
 
 build:
   number: 0
