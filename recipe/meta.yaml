@@ -40,8 +40,8 @@ requirements:
     - cython >=3.0.5
     - numpy
     - versioneer
-    - meson =1.4.0
-    - meson-python =0.13.1
+    - meson =1.2.1
+    - meson-python =0.15.0
     - tomli  # [py<311]
     - ninja
   run:
