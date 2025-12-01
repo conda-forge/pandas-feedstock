@@ -41,7 +41,7 @@ requirements:
     - numpy
     - versioneer
     - meson =1.9.1
-    - meson-python =0.18.0
+    - meson-python =0.17.1
     - tomli  # [py<311]
     - ninja
   run:
