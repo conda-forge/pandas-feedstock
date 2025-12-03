@@ -45,7 +45,7 @@ requirements:
     - tomli  # [py<311]
     - ninja
   run:
-    - python >=3.11
+    - python
     # Add only the lowest-supported numpy version from pyproject.toml here,
     # no need to worry about old versions that don't support a given Python version.
     - numpy >=1.26.0
