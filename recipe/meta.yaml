@@ -25,7 +25,7 @@ build:
 
 requirements:
   build:
-    - python >=3.11                          # [build_platform != target_platform]
+    - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython >=3.0.5                         # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
@@ -35,7 +35,7 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
   host:
-    - python >=3.11
+    - python
     - pip
     - cython >=3.0.5
     - numpy
@@ -45,7 +45,7 @@ requirements:
     - tomli  # [py<311]
     - ninja
   run:
-    - python >=3.11
+    - python
     # Add only the lowest-supported numpy version from pyproject.toml here,
     # no need to worry about old versions that don't support a given Python version.
     - numpy >=1.26.0
