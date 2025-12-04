@@ -1,5 +1,5 @@
 {% set tests_to_skip = "_not_a_real_test" %}
-{% set version = "2.3.3" %}
+{% set version = "3.0.0rc0" %}
 
 package:
   name: pandas
@@ -7,12 +7,10 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: e05e1af93b977f7eafa636d043f9f94c7ee3ac81af99c13508215942e64c993b
-  patches:
-    - 62832_fixed_in_2.3.4.patch
+  sha256: ac699b803f83f54c877fe11f0e563c5862808ff08471d64281ecd13056207ca4
 
 build:
-  number: 2
+  number: 0
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     # Cross-compilation stuff vendored from numpy-feedstock
