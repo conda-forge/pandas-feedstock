@@ -13,6 +13,7 @@ source:
 
 build:
   number: 3
+  skip: true  # [py < 311]
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     # Cross-compilation stuff vendored from numpy-feedstock
