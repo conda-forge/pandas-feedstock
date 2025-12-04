@@ -17,14 +17,7 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://app.travis-ci.com/conda-forge/pandas-feedstock">
-        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/pandas-feedstock/main.svg?label=Linux">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
@@ -38,206 +31,255 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_numpy1.22python3.10.____cpythonpython_implcpython</td>
+              <td>linux_64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_numpy1.22python3.10.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_numpy1.22python3.9.____73_pypypython_implpypy</td>
+              <td>linux_64_python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_numpy1.22python3.9.____73_pypypython_implpypy" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_numpy1.22python3.9.____cpythonpython_implcpython</td>
+              <td>linux_64_python3.12.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_numpy1.22python3.9.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.12.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_numpy1.23python3.11.____cpythonpython_implcpython</td>
+              <td>linux_64_python3.13.____cp313</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_numpy1.23python3.11.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.13.____cp313" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_numpy1.26python3.12.____cpythonpython_implcpython</td>
+              <td>linux_64_python3.14.____cp314</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_numpy1.26python3.12.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.14.____cp314" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_numpy1.22python3.10.____cpythonpython_implcpython</td>
+              <td>linux_64_python3.14.____cp314t</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_numpy1.22python3.10.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.14.____cp314t" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_numpy1.22python3.9.____73_pypypython_implpypy</td>
+              <td>linux_aarch64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_numpy1.22python3.9.____73_pypypython_implpypy" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_numpy1.22python3.9.____cpythonpython_implcpython</td>
+              <td>linux_aarch64_python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_numpy1.22python3.9.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_numpy1.23python3.11.____cpythonpython_implcpython</td>
+              <td>linux_aarch64_python3.12.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_numpy1.23python3.11.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.12.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_numpy1.26python3.12.____cpythonpython_implcpython</td>
+              <td>linux_aarch64_python3.13.____cp313</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_numpy1.26python3.12.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.13.____cp313" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_numpy1.22python3.10.____cpythonpython_implcpython</td>
+              <td>linux_aarch64_python3.14.____cp314</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_numpy1.22python3.10.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.14.____cp314" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_numpy1.22python3.9.____73_pypypython_implpypy</td>
+              <td>linux_aarch64_python3.14.____cp314t</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_numpy1.22python3.9.____73_pypypython_implpypy" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.14.____cp314t" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_numpy1.22python3.9.____cpythonpython_implcpython</td>
+              <td>linux_ppc64le_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_numpy1.22python3.9.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_numpy1.23python3.11.____cpythonpython_implcpython</td>
+              <td>linux_ppc64le_python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_numpy1.23python3.11.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_numpy1.26python3.12.____cpythonpython_implcpython</td>
+              <td>linux_ppc64le_python3.12.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_numpy1.26python3.12.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.12.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_numpy1.22python3.10.____cpythonpython_implcpython</td>
+              <td>linux_ppc64le_python3.13.____cp313</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_numpy1.22python3.10.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.13.____cp313" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_numpy1.22python3.9.____73_pypypython_implpypy</td>
+              <td>linux_ppc64le_python3.14.____cp314</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_numpy1.22python3.9.____73_pypypython_implpypy" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.14.____cp314" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_numpy1.22python3.9.____cpythonpython_implcpython</td>
+              <td>linux_ppc64le_python3.14.____cp314t</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_numpy1.22python3.9.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.14.____cp314t" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_numpy1.23python3.11.____cpythonpython_implcpython</td>
+              <td>osx_64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_numpy1.23python3.11.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_numpy1.26python3.12.____cpythonpython_implcpython</td>
+              <td>osx_64_python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_numpy1.26python3.12.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_numpy1.22python3.10.____cpython</td>
+              <td>osx_64_python3.12.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_numpy1.22python3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.12.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_numpy1.22python3.9.____cpython</td>
+              <td>osx_64_python3.13.____cp313</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_numpy1.22python3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.13.____cp313" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_numpy1.23python3.11.____cpython</td>
+              <td>osx_64_python3.14.____cp314</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_numpy1.23python3.11.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.14.____cp314" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_numpy1.26python3.12.____cpython</td>
+              <td>osx_64_python3.14.____cp314t</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_numpy1.26python3.12.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.14.____cp314t" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64_numpy1.22python3.10.____cpythonpython_implcpython</td>
+              <td>osx_arm64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=win&configuration=win%20win_64_numpy1.22python3.10.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64_numpy1.22python3.9.____73_pypypython_implpypy</td>
+              <td>osx_arm64_python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=win&configuration=win%20win_64_numpy1.22python3.9.____73_pypypython_implpypy" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64_numpy1.22python3.9.____cpythonpython_implcpython</td>
+              <td>osx_arm64_python3.12.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=win&configuration=win%20win_64_numpy1.22python3.9.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.12.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64_numpy1.23python3.11.____cpythonpython_implcpython</td>
+              <td>osx_arm64_python3.13.____cp313</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=win&configuration=win%20win_64_numpy1.23python3.11.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.13.____cp313" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64_numpy1.26python3.12.____cpythonpython_implcpython</td>
+              <td>osx_arm64_python3.14.____cp314</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=win&configuration=win%20win_64_numpy1.26python3.12.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.14.____cp314" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_python3.14.____cp314t</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.14.____cp314t" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.11.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.11.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.12.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.12.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.13.____cp313</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.13.____cp313" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.14.____cp314</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.14.____cp314" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.14.____cp314t</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=748&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pandas-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.14.____cp314t" alt="variant">
                 </a>
               </td>
             </tr>
@@ -258,14 +300,14 @@ Current release info
 Installing pandas
 =================
 
-Installing `pandas` from the `conda-forge/label/pandas_rc` channel can be achieved by adding `conda-forge/label/pandas_rc` to your channels with:
+Installing `pandas` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
-conda config --add channels conda-forge/label/pandas_rc
+conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge/label/pandas_rc` channel has been enabled, `pandas` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `pandas` can be installed with `conda`:
 
 ```
 conda install pandas
@@ -280,26 +322,26 @@ mamba install pandas
 It is possible to list all of the versions of `pandas` available on your platform with `conda`:
 
 ```
-conda search pandas --channel conda-forge/label/pandas_rc
+conda search pandas --channel conda-forge
 ```
 
 or with `mamba`:
 
 ```
-mamba search pandas --channel conda-forge/label/pandas_rc
+mamba search pandas --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search pandas --channel conda-forge/label/pandas_rc
+mamba repoquery search pandas --channel conda-forge
 
 # List packages depending on `pandas`:
-mamba repoquery whoneeds pandas --channel conda-forge/label/pandas_rc
+mamba repoquery whoneeds pandas --channel conda-forge
 
 # List dependencies of `pandas`:
-mamba repoquery depends pandas --channel conda-forge/label/pandas_rc
+mamba repoquery depends pandas --channel conda-forge
 ```
 
 
@@ -324,12 +366,12 @@ it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance
+To manage the continuous integration and simplify feedstock maintenance,
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -356,7 +398,7 @@ merged, the recipe will be re-built and uploaded automatically to the
 everybody to install and use from the `conda-forge` channel.
 Note that all branches in the conda-forge/pandas-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
