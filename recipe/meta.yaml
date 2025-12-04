@@ -1,5 +1,5 @@
 {% set tests_to_skip = "_not_a_real_test" %}
-{% set version = "2.2.0rc0" %}
+{% set version = "3.0.0rc0" %}
 
 package:
   name: pandas
@@ -7,20 +7,20 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: f864d8a5080e3f284b46eb26c7cb102a39b9bd6ac9a4d97d7a24d86fd3c0e656
+  sha256: ac699b803f83f54c877fe11f0e563c5862808ff08471d64281ecd13056207ca4
 
 build:
   number: 0
+  skip: true  # [py < 311]
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     # Cross-compilation stuff vendored from numpy-feedstock
     # necessary for cross-compilation to point to the right env
-    - export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig  # [ppc64le]
-    - echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt  # [ppc64le]
+    - export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig                                    # [build_platform != target_platform]
+    - echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt  # [build_platform != target_platform]
     - MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"  # [unix]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}  # [unix]
     - {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .  # [not unix]
-  skip: true  # [py<39]
 
 requirements:
   build:
@@ -31,6 +31,7 @@ requirements:
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
   host:
     - python
@@ -38,16 +39,56 @@ requirements:
     - cython >=3.0.5
     - numpy
     - versioneer
-    - meson =1.2.1
-    - meson-python =0.13.1
+    - meson >=1.4.0
+    - meson-python >=0.15.0
     - tomli  # [py<311]
     - ninja
   run:
     - python
-    - {{ pin_compatible('numpy') }}
-    - python-dateutil >=2.8.1
-    - pytz >=2020.1
-    - python-tzdata >=2022a
+    # Add only the lowest-supported numpy version from pyproject.toml here,
+    # no need to worry about old versions that don't support a given Python version.
+    - numpy >=1.26.0
+    - python-dateutil >=2.8.2
+    - python-tzdata >=2023.3
+  run_constrained:
+    - adbc-driver-postgresql >=1.2.0
+    - adbc-driver-sqlite >=1.2.0
+    - beautifulsoup4 >=4.12.3
+    - blosc >=1.21.3
+    - bottleneck >=1.4.2
+    - fastparquet >=2024.11.0
+    - fsspec >=2024.10.0
+    - gcsfs >=2024.10.0
+    - html5lib >=1.1
+    - hypothesis >=6.116.0
+    - jinja2 >=3.1.5
+    - lxml >=5.3.0
+    - matplotlib >=3.9.3
+    - numba >=0.60.0
+    - numexpr >=2.10.2
+    - odfpy >=1.4.1
+    - openpyxl >=3.1.5
+    - psycopg2 >=2.9.10
+    - pyarrow >=13.0.0
+    - pyiceberg >=0.8.1
+    - pymysql >=1.1.1
+    - pyqt5 >=5.15.9
+    - pyreadstat >=1.2.8
+    - pytables >=3.10.1
+    - pytest >=8.3.4
+    - pytest-xdist >=3.6.1
+    - python-calamine >=0.3.0
+    - pytz >=2024.2
+    - pyxlsb >=1.0.10
+    - qtpy >=2.4.2
+    - scipy >=1.14.1
+    - s3fs >=2024.10.0
+    - sqlalchemy >=2.0.36
+    - tabulate >=0.9.0
+    - xarray >=2024.10.0
+    - xlrd >=2.0.1
+    - xlsxwriter >=3.2.0
+    - zstandard >=0.23.0
 
 test:
   imports:
@@ -57,28 +98,20 @@ test:
     # Skip test suite on PyPy as it segfaults there
     # xref: https://github.com/conda-forge/pandas-feedstock/issues/148
     #
-    # Also skip `test_rolling_var_numerical_issues` on `ppc64le` as it is a known test failure.
-    # xref: https://github.com/conda-forge/pandas-feedstock/issues/149
+    # do not run test suite in emulation because it takes ~5h; rely on upstream CI for aarch
     {% set markers = ["not clipboard", "not single_cpu", "not slow", "not network", "not db"] %}
-    {% set markers = markers + ["not arm_slow"] %}   # [aarch64 or ppc64le]
     {% set extra_args = ["-m " + " and ".join(markers)] %}
     {% set tests_to_skip = "_not_a_real_test" %}
-    {% set tests_to_skip = tests_to_skip + " or test_rolling_var_numerical_issues" %}           # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or test_std_timedelta64_skipna_false" %}           # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or test_value_counts_normalized[M8[ns]]" %}        # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or test_to_datetime_format_YYYYMMDD_with_nat" %}   # [ppc64le]
-    {% set tests_to_skip = tests_to_skip + " or (TestReductions and test_median_2d)" %}         # [ppc64le]
     {% set extra_args = extra_args + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"] %}
-    - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [python_impl == "cpython"]
+    - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [(build_platform == target_platform) and (python_impl == "cpython")]
   requires:
     - pip
-    - pytest >=6.0
-    - pytest-xdist >=1.31
+    - pytest >=8.3.4
+    - pytest-xdist >=3.6.1
     - pytest-cov
     - boto3
     - hypothesis
     - numpy
-    - psutil
     - tomli  # [py<311]
 
 about:
