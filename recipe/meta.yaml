@@ -49,7 +49,7 @@ requirements:
     # no need to worry about old versions that don't support a given Python version.
     - numpy >=1.26.0
     - python-dateutil >=2.8.2
-    - python-tzdata >=2023.3
+    - python-tzdata  # [win]
   run_constrained:
     - adbc-driver-postgresql >=1.2.0
     - adbc-driver-sqlite >=1.2.0
