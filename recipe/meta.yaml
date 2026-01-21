@@ -1,5 +1,5 @@
 {% set tests_to_skip = "_not_a_real_test" %}
-{% set version = "2.3.3" %}
+{% set version = "3.0.0" %}
 
 package:
   name: pandas
@@ -7,12 +7,11 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: e05e1af93b977f7eafa636d043f9f94c7ee3ac81af99c13508215942e64c993b
-  patches:
-    - 62832_fixed_in_2.3.4.patch
+  sha256: 30fc8774eab95e2a48067fc3d49e702298725a1d0a87e0cc562fb0060d95ed35
 
 build:
-  number: 2
+  number: 0
+  skip: true  # [py < 311]
   script:
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     # Cross-compilation stuff vendored from numpy-feedstock
@@ -28,7 +27,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython >=3.0.5                         # [build_platform != target_platform]
-    - numpy                                  # [build_platform != target_platform]
+    - numpy =2.3                            # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
@@ -38,7 +37,7 @@ requirements:
     - python
     - pip
     - cython >=3.0.5
-    - numpy
+    - numpy =2.3
     - versioneer
     - meson >=1.4.0
     - meson-python >=0.15.0
@@ -48,42 +47,48 @@ requirements:
     - python
     # Add only the lowest-supported numpy version from pyproject.toml here,
     # no need to worry about old versions that don't support a given Python version.
-    - numpy >=1.22.4
+    - numpy >=1.26.0
     - python-dateutil >=2.8.2
-    - pytz >=2020.1
-    - python-tzdata >=2022.7
+    - python-tzdata  # [win]
   run_constrained:
-    - beautifulsoup4 >=4.11.2
+    - adbc-driver-postgresql >=1.2.0
+    - adbc-driver-sqlite >=1.2.0
+    - beautifulsoup4 >=4.12.3
     - blosc >=1.21.3
-    - bottleneck >=1.3.6
-    - fastparquet >=2022.12.0
-    - fsspec >=2022.11.0
-    - gcsfs >=2022.11.0
+    - bottleneck >=1.4.2
+    - fastparquet >=2024.11.0
+    - fsspec >=2024.10.0
+    - gcsfs >=2024.10.0
     - html5lib >=1.1
-    - lxml >=4.9.2
-    - matplotlib >=3.6.3
-    - numba >=0.56.4
-    - numexpr >=2.8.4
+    - hypothesis >=6.116.0
+    - jinja2 >=3.1.5
+    - lxml >=5.3.0
+    - matplotlib >=3.9.3
+    - numba >=0.60.0
+    - numexpr >=2.10.2
     - odfpy >=1.4.1
-    - openpyxl >=3.1.0
-    - pandas-gbq >=0.19.0
-    - psycopg2 >=2.9.6
-    - pyarrow >=10.0.1
+    - openpyxl >=3.1.5
+    - psycopg2 >=2.9.10
+    - pyarrow >=13.0.0
+    - pyiceberg >=0.8.1
+    - pymysql >=1.1.1
     - pyqt5 >=5.15.9
-    - pyreadstat >=1.2.0
-    - pytables >=3.8.0
-    - python-calamine >=0.1.7
+    - pyreadstat >=1.2.8
+    - pytables >=3.10.1
+    - pytest >=8.3.4
+    - pytest-xdist >=3.6.1
+    - python-calamine >=0.3.0
+    - pytz >=2024.2
     - pyxlsb >=1.0.10
-    - qtpy >=2.3.0
-    - s3fs >=2022.11.0
-    - scipy >=1.10.0
-    - sqlalchemy >=2.0.0
+    - qtpy >=2.4.2
+    - scipy >=1.14.1
+    - s3fs >=2024.10.0
+    - sqlalchemy >=2.0.36
     - tabulate >=0.9.0
-    - tzdata >=2022.7
-    - xarray >=2022.12.0
+    - xarray >=2024.10.0
     - xlrd >=2.0.1
-    - xlsxwriter >=3.0.5
-    - zstandard >=0.19.0
+    - xlsxwriter >=3.2.0
+    - zstandard >=0.23.0
 
 test:
   imports:
@@ -101,14 +106,12 @@ test:
     - python -c "import pandas; pandas.test(extra_args={{ extra_args }})"  # [(build_platform == target_platform) and (python_impl == "cpython")]
   requires:
     - pip
-    - pytest >=7.3.2
-    - pytest-xdist >=2.2.0
+    - pytest >=8.3.4
+    - pytest-xdist >=3.6.1
     - pytest-cov
-    - pytz >=2020.1,<2024.2
     - boto3
     - hypothesis
     - numpy
-    - psutil
     - tomli  # [py<311]
 
 about:
