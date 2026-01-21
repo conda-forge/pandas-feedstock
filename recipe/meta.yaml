@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v{{ version }}/pandas-{{ version }}.tar.gz
-  sha256: 30fc8774eab95e2a48067fc3d49e702298725a1d0a87e0cc562fb0060d95ed35
+  sha256: 0facf7e87d38f721f0af46fe70d97373a37701b1c09f7ed7aeeb292ade5c050f
 
 build:
   number: 0
@@ -27,7 +27,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython >=3.0.5                         # [build_platform != target_platform]
-    - numpy =2.3                            # [build_platform != target_platform]
+    - numpy =2.3                             # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
@@ -40,8 +40,7 @@ requirements:
     - numpy =2.3
     - versioneer
     - meson >=1.4.0
-    - meson-python >=0.15.0
-    - tomli  # [py<311]
+    - meson-python >=0.17.1
     - ninja
   run:
     - python
@@ -112,7 +111,6 @@ test:
     - boto3
     - hypothesis
     - numpy
-    - tomli  # [py<311]
 
 about:
   home: http://pandas.pydata.org
