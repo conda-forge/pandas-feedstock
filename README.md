@@ -3,7 +3,7 @@ About pandas-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pandas-feedstock/blob/main/LICENSE.txt)
 
-Home: http://pandas.pydata.org
+Home: http://pandas.pydata.org/
 
 Package license: BSD-3-Clause
 
