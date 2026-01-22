@@ -1,24 +1,22 @@
+# -*- mode: toml -*-
 # This file was generated automatically from conda-smithy. To update this configuration,
 # update the conda-forge.yml and/or the recipe/meta.yaml.
-# -*- mode: toml -*-
+"$schema" = "https://pixi.sh/v0.59.0/schema/manifest/schema.json"
 
-#                             VVVVVV  minimum `pixi` version
-"$schema" = "https://pixi.sh/v0.36.0/schema/manifest/schema.json"
-
-[project]
+[workspace]
 name = "pandas-feedstock"
-version = "3.50.1"  # conda-smithy version used to generate this file
+version = "3.54.1"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/pandas-feedstock"
 authors = ["@conda-forge/pandas"]
 channels = ["conda-forge"]
-platforms = ["linux-64", "linux-aarch64", "linux-ppc64le", "osx-64", "win", "win-64"]
+platforms = ["linux-64", "linux-aarch64", "linux-ppc64le", "osx-64", "win-64"]
+requires-pixi = ">=0.59.0"
 
 [dependencies]
 conda-build = ">=24.1"
 conda-forge-ci-setup = "4.*"
 rattler-build = "*"
 
-[tasks]
 [tasks.inspect-all]
 cmd = "inspect_artifacts --all-packages"
 description = "List contents of all packages found in rattler-build build directory."
@@ -49,12 +47,6 @@ description = "Build pandas-feedstock with variant linux_64_python3.13.____cp313
 [tasks."inspect-linux_64_python3.13.____cp313"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_python3.13.____cp313.yaml"
 description = "List contents of pandas-feedstock packages built for variant linux_64_python3.13.____cp313"
-[tasks."build-linux_64_python3.9.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_python3.9.____cpython.yaml"
-description = "Build pandas-feedstock with variant linux_64_python3.9.____cpython directly (without setup scripts)"
-[tasks."inspect-linux_64_python3.9.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_python3.9.____cpython.yaml"
-description = "List contents of pandas-feedstock packages built for variant linux_64_python3.9.____cpython"
 [tasks."build-linux_aarch64_python3.10.____cpython"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_python3.10.____cpython.yaml"
 description = "Build pandas-feedstock with variant linux_aarch64_python3.10.____cpython directly (without setup scripts)"
@@ -79,12 +71,6 @@ description = "Build pandas-feedstock with variant linux_aarch64_python3.13.____
 [tasks."inspect-linux_aarch64_python3.13.____cp313"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_python3.13.____cp313.yaml"
 description = "List contents of pandas-feedstock packages built for variant linux_aarch64_python3.13.____cp313"
-[tasks."build-linux_aarch64_python3.9.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_python3.9.____cpython.yaml"
-description = "Build pandas-feedstock with variant linux_aarch64_python3.9.____cpython directly (without setup scripts)"
-[tasks."inspect-linux_aarch64_python3.9.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_python3.9.____cpython.yaml"
-description = "List contents of pandas-feedstock packages built for variant linux_aarch64_python3.9.____cpython"
 [tasks."build-linux_ppc64le_python3.10.____cpython"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/linux_ppc64le_python3.10.____cpython.yaml"
 description = "Build pandas-feedstock with variant linux_ppc64le_python3.10.____cpython directly (without setup scripts)"
@@ -109,12 +95,6 @@ description = "Build pandas-feedstock with variant linux_ppc64le_python3.13.____
 [tasks."inspect-linux_ppc64le_python3.13.____cp313"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_ppc64le_python3.13.____cp313.yaml"
 description = "List contents of pandas-feedstock packages built for variant linux_ppc64le_python3.13.____cp313"
-[tasks."build-linux_ppc64le_python3.9.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_ppc64le_python3.9.____cpython.yaml"
-description = "Build pandas-feedstock with variant linux_ppc64le_python3.9.____cpython directly (without setup scripts)"
-[tasks."inspect-linux_ppc64le_python3.9.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_ppc64le_python3.9.____cpython.yaml"
-description = "List contents of pandas-feedstock packages built for variant linux_ppc64le_python3.9.____cpython"
 [tasks."build-osx_64_python3.10.____cpython"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_python3.10.____cpython.yaml"
 description = "Build pandas-feedstock with variant osx_64_python3.10.____cpython directly (without setup scripts)"
@@ -139,12 +119,6 @@ description = "Build pandas-feedstock with variant osx_64_python3.13.____cp313 d
 [tasks."inspect-osx_64_python3.13.____cp313"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_python3.13.____cp313.yaml"
 description = "List contents of pandas-feedstock packages built for variant osx_64_python3.13.____cp313"
-[tasks."build-osx_64_python3.9.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_python3.9.____cpython.yaml"
-description = "Build pandas-feedstock with variant osx_64_python3.9.____cpython directly (without setup scripts)"
-[tasks."inspect-osx_64_python3.9.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_python3.9.____cpython.yaml"
-description = "List contents of pandas-feedstock packages built for variant osx_64_python3.9.____cpython"
 [tasks."build-osx_arm64_python3.10.____cpython"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_python3.10.____cpython.yaml"
 description = "Build pandas-feedstock with variant osx_arm64_python3.10.____cpython directly (without setup scripts)"
@@ -169,12 +143,6 @@ description = "Build pandas-feedstock with variant osx_arm64_python3.13.____cp31
 [tasks."inspect-osx_arm64_python3.13.____cp313"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_python3.13.____cp313.yaml"
 description = "List contents of pandas-feedstock packages built for variant osx_arm64_python3.13.____cp313"
-[tasks."build-osx_arm64_python3.9.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_python3.9.____cpython.yaml"
-description = "Build pandas-feedstock with variant osx_arm64_python3.9.____cpython directly (without setup scripts)"
-[tasks."inspect-osx_arm64_python3.9.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_python3.9.____cpython.yaml"
-description = "List contents of pandas-feedstock packages built for variant osx_arm64_python3.9.____cpython"
 [tasks."build-win_64_python3.10.____cpython"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/win_64_python3.10.____cpython.yaml"
 description = "Build pandas-feedstock with variant win_64_python3.10.____cpython directly (without setup scripts)"
@@ -199,12 +167,6 @@ description = "Build pandas-feedstock with variant win_64_python3.13.____cp313 d
 [tasks."inspect-win_64_python3.13.____cp313"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_64_python3.13.____cp313.yaml"
 description = "List contents of pandas-feedstock packages built for variant win_64_python3.13.____cp313"
-[tasks."build-win_64_python3.9.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/win_64_python3.9.____cpython.yaml"
-description = "Build pandas-feedstock with variant win_64_python3.9.____cpython directly (without setup scripts)"
-[tasks."inspect-win_64_python3.9.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_64_python3.9.____cpython.yaml"
-description = "List contents of pandas-feedstock packages built for variant win_64_python3.9.____cpython"
 
 [feature.smithy.dependencies]
 conda-smithy = "*"
@@ -223,5 +185,6 @@ description = "Lint the feedstock recipe"
 
 [environments]
 smithy = ["smithy"]
+
 # This is a copy of default, to be enabled by build_steps.sh during Docker builds
 # __PLATFORM_SPECIFIC_ENV__ = []
