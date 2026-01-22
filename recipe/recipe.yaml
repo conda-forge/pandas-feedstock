@@ -47,7 +47,8 @@ requirements:
     - python
     - pip
     - cython >=3.0.5
-    - numpy
+    # TODO: Unpin https://github.com/conda-forge/pandas-feedstock/pull/242#issuecomment-3762956756
+    - numpy =2.3
     - versioneer
     - meson >1.4.1
     - meson-python >=0.17.1
