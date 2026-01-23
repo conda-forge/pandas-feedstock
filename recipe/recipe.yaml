@@ -106,19 +106,22 @@ tests:
       imports:
         - pandas
       pip_check: true
-  - requirements:
-      run:
-        - pytest >=8.3.4
-        - hypothesis
+  # do not run test suite in emulation because it takes ~5h; rely on upstream CI for aarch
+  - if: build_platform == target_platform
+    then:
+      - requirements:
+          run:
+            - pytest >=8.3.4
+            - hypothesis
 
-    script:
-      interpreter: python
-      content: |
-        import pandas
-        markers = ["not clipboard", "not single_cpu", "not slow", "not network", "not db"]
-        extra_args = ["-m " + " and ".join(markers)]
-        extra_args = extra_args + ["--no-strict-data-files"]
-        pandas.test(extra_args=extra_args)
+        script:
+          interpreter: python
+          content: |
+            import pandas
+            markers = ["not clipboard", "not single_cpu", "not slow", "not network", "not db"]
+            extra_args = ["-m " + " and ".join(markers)]
+            extra_args = extra_args + ["--no-strict-data-files"]
+            pandas.test(extra_args=extra_args)
 
 about:
   license: BSD-3-Clause
