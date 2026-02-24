@@ -12,7 +12,7 @@ source:
   sha256: 4186a699674af418f655dbd420ed87f50d56b4cd6603784279d9eef6627823c8
 
 build:
-  number: 0
+  number: 1
   skip: match(python, "<3.11")
   script:
     - if: ppc64le
@@ -106,21 +106,13 @@ tests:
       imports:
         - pandas
       pip_check: true
-  # Skip test suite on PyPy as it segfaults there
-  # xref: https://github.com/conda-forge/pandas-feedstock/issues/148
-  #
   # do not run test suite in emulation because it takes ~5h; rely on upstream CI for aarch
-  - if: (build_platform == target_platform) and (python_impl == "cpython")
+  - if: build_platform == target_platform
     then:
       - requirements:
           run:
-            - pip
             - pytest >=8.3.4
-            - pytest-xdist >=3.6.1
-            - pytest-cov
-            - boto3
             - hypothesis
-            - numpy
 
         script:
           interpreter: python
@@ -128,8 +120,7 @@ tests:
             import pandas
             markers = ["not clipboard", "not single_cpu", "not slow", "not network", "not db"]
             extra_args = ["-m " + " and ".join(markers)]
-            tests_to_skip = "_not_a_real_test"
-            extra_args = extra_args + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"]
+            extra_args = extra_args + ["--no-strict-data-files"]
             pandas.test(extra_args=extra_args)
 
 about:
