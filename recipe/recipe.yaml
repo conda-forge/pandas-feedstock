@@ -37,8 +37,7 @@ requirements:
         - python
         - cross-python_${{ target_platform }}
         - cython >=3.0.5
-        # TODO: Unpin https://github.com/conda-forge/pandas-feedstock/pull/242#issuecomment-3762956756
-        - numpy =2.3
+        - numpy
         - meson-python
         - ninja
     - ${{ compiler('c') }}
@@ -48,8 +47,7 @@ requirements:
     - python
     - pip
     - cython >=3.0.5
-    # TODO: Unpin https://github.com/conda-forge/pandas-feedstock/pull/242#issuecomment-3762956756
-    - numpy =2.3
+    - numpy
     - versioneer
     - meson >1.4.1
     - meson-python >=0.17.1
