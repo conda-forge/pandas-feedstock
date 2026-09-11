@@ -14,7 +14,7 @@ source:
     - fix-pytest-warnings.patch
 
 build:
-  number: 1
+  number: 2
   script:
     - if: ppc64le
       then: export PYTHONUNBUFFERED=1
