@@ -139,10 +139,10 @@ Current release info
 Installing pandas
 =================
 
-Installing `pandas` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `pandas` from the `conda-forge/label/pandas_rc` channel can be achieved by adding `conda-forge/label/pandas_rc` to your channels with:
 
 ```
-conda config --add channels conda-forge
+conda config --add channels conda-forge/label/pandas_rc
 conda config --set channel_priority strict
 ```
 
@@ -188,7 +188,7 @@ It is possible to list all of the versions of `pandas` available on your platfor
 <summary>With conda</summary>
 
 ```
-conda search pandas --channel conda-forge
+conda search pandas --channel conda-forge/label/pandas_rc
 ```
 
 </details>
@@ -197,7 +197,7 @@ conda search pandas --channel conda-forge
 <summary>With mamba</summary>
 
 ```
-mamba search pandas --channel conda-forge
+mamba search pandas --channel conda-forge/label/pandas_rc
 ```
 
 </details>
@@ -206,7 +206,7 @@ mamba search pandas --channel conda-forge
 <summary>With pixi</summary>
 
 ```
-pixi search pandas --channel conda-forge
+pixi search pandas --channel conda-forge/label/pandas_rc
 ```
 
 </details>
@@ -216,13 +216,13 @@ pixi search pandas --channel conda-forge
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search pandas --channel conda-forge
+mamba repoquery search pandas --channel conda-forge/label/pandas_rc
 
 # List packages depending on `pandas`:
-mamba repoquery whoneeds pandas --channel conda-forge
+mamba repoquery whoneeds pandas --channel conda-forge/label/pandas_rc
 
 # List dependencies of `pandas`:
-mamba repoquery depends pandas --channel conda-forge
+mamba repoquery depends pandas --channel conda-forge/label/pandas_rc
 ```
 
 </details>
