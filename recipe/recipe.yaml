@@ -1,17 +1,15 @@
 schema_version: 1
 
 context:
-  version: "3.0.6"
+  version: "3.1.0rc0"
 
 package:
   name: pandas
   version: ${{ version }}
 
 source:
-  url: https://github.com/pandas-dev/pandas/releases/download/v${{ version }}/pandas-${{ version }}.tar.gz
-  sha256: 66b07ef7315a31bfe1089cd3d71a7de781c9dca986762d0b4fe7c0ef17465d10
-  patches:
-    - fix-pytest-warnings.patch
+  url: https://files.pythonhosted.org/packages/source/p/pandas/pandas-${{ version }}.tar.gz
+  sha256: f974ad866f5fadbaf7741bd8f5b6e07815dfa04839853deb262da2663819b40b
 
 build:
   number: 0
