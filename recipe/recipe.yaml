@@ -34,7 +34,7 @@ requirements:
       then:
         - python
         - cross-python_${{ target_platform }}
-        - cython >=3.0.5
+        - cython >=3.1.0
         - numpy
         - meson-python
         - ninja
@@ -44,11 +44,11 @@ requirements:
   host:
     - python
     - pip
-    - cython >=3.0.5
+    - cython >=3.1.0
     - numpy
     - versioneer
     - meson >1.4.1
-    - meson-python >=0.17.1
+    - meson-python >=0.19.0
     - ninja
   run:
     - python
@@ -62,14 +62,13 @@ requirements:
     - adbc-driver-postgresql >=1.7.0
     - adbc-driver-sqlite >=1.7.0
     - beautifulsoup4 >=4.13.4
-    - blosc >=1.21.3
     - bottleneck >=1.5.0
     - fastparquet >=2024.11.0
     - fsspec >=2025.7.0
     - gcsfs >=2025.7.0
     - html5lib >=1.1
     - hypothesis >=6.116.0
-    - jinja2 >=3.1.5
+    - jinja2 >=3.1.6
     - lxml >=6.0.0
     - matplotlib >=3.10.5
     - numba >=0.61.2
@@ -114,7 +113,6 @@ tests:
             - pytest-xdist >=3.6.1
             - pytest-cov
             - boto3
-            - hypothesis
             - numpy
 
         script:
