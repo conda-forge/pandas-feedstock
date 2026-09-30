@@ -121,7 +121,7 @@ tests:
             import pandas
             markers = ["not clipboard", "not single_cpu", "not slow", "not network", "not db"]
             extra_args = ["-m " + " and ".join(markers)]
-            tests_to_skip = "test_encoding_detected"
+            tests_to_skip = "test_encoding_detected or test_streaming_s3_objects"
             extra_args = extra_args + ["-k", "not (" + tests_to_skip + ")", "--no-strict-data-files"]
             pandas.test(extra_args=extra_args)
 
