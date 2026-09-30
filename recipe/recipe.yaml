@@ -54,48 +54,46 @@ requirements:
     - python
     # Add only the lowest-supported numpy version from pyproject.toml here,
     # no need to worry about old versions that don't support a given Python version.
-    - numpy >=1.26.0
-    - python-dateutil >=2.8.2
+    - numpy >=2.0.2
+    - python-dateutil >=2.9.0
     - if: win
       then: python-tzdata
   run_constraints:
-    - adbc-driver-postgresql >=1.2.0
-    - adbc-driver-sqlite >=1.2.0
-    - beautifulsoup4 >=4.12.3
+    - adbc-driver-postgresql >=1.7.0
+    - adbc-driver-sqlite >=1.7.0
+    - beautifulsoup4 >=4.13.4
     - blosc >=1.21.3
-    - bottleneck >=1.4.2
+    - bottleneck >=1.5.0
     - fastparquet >=2024.11.0
-    - fsspec >=2024.10.0
-    - gcsfs >=2024.10.0
+    - fsspec >=2025.7.0
+    - gcsfs >=2025.7.0
     - html5lib >=1.1
     - hypothesis >=6.116.0
     - jinja2 >=3.1.5
-    - lxml >=5.3.0
-    - matplotlib >=3.9.3
-    - numba >=0.60.0
-    - numexpr >=2.10.2
+    - lxml >=6.0.0
+    - matplotlib >=3.10.5
+    - numba >=0.61.2
+    - numexpr >=2.11.0
     - odfpy >=1.4.1
     - openpyxl >=3.1.5
     - psycopg2 >=2.9.10
-    - pyarrow >=13.0.0
-    - pyiceberg >=0.8.1
+    - pyarrow >=16.0.0
+    - pyiceberg >=0.9.1
     - pymysql >=1.1.1
-    - pyqt5 >=5.15.9
-    - pyreadstat >=1.2.8
-    - pytables >=3.10.1
-    - pytest >=8.3.4
-    - pytest-xdist >=3.6.1
-    - python-calamine >=0.3.0
+    - pyqt5 >=5.15.11
+    - pyreadstat >=1.3.0
+    - pytables >=3.10.2
+    - python-calamine >=0.4.0
     - pytz >=2024.2
     - pyxlsb >=1.0.10
-    - qtpy >=2.4.2
-    - scipy >=1.14.1
-    - s3fs >=2024.10.0
-    - sqlalchemy >=2.0.36
+    - qtpy >=2.4.3
+    - scipy >=1.16.1
+    - s3fs >=2025.7.0
+    - sqlalchemy >=2.0.42
     - tabulate >=0.9.0
-    - xarray >=2024.10.0
-    - xlrd >=2.0.1
-    - xlsxwriter >=3.2.0
+    - xarray >=2025.7.1
+    - xlrd >=2.0.2
+    - xlsxwriter >=3.2.5
     - zstandard >=0.23.0
 
 tests:
