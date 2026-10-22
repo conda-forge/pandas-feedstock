@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "3.1.0rc0"
+  version: "3.1.0"
 
 package:
   name: pandas
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/p/pandas/pandas-${{ version }}.tar.gz
-  sha256: f974ad866f5fadbaf7741bd8f5b6e07815dfa04839853deb262da2663819b40b
+  sha256: ecb9b2d8a817b1e1ba1fdb90c0abe9eab31b4fdf2562b7a56b86ac66ace17e49
 
 build:
   number: 0
